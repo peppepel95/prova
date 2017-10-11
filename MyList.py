@@ -9,7 +9,6 @@ class Node:
 
 
 class MyList(AbstractMyList):
-
     def __init__(self):
         self._size = 0
         self._head = None
@@ -31,71 +30,61 @@ class MyList(AbstractMyList):
     def __getitem__(self, i):
         if i < 0:
             i = self._size + i
+
         if i < 0 or i > self._size - 1:
             raise IndexError("Out of range")
 
         if i < self._size / 2:
-
             temp = self._head
             j = 0
-
             while temp.next != None:
                 if j == i:
                     break
                 else:
                     j += 1
                     temp = temp.next
-
             return temp._data
 
         else:
             temp = self._tail
             j = self._size - 1
-
             while temp.prev != None:
                 if j == i:
                     break
                 else:
                     j -= 1
                     temp = temp.prev
-
             return temp._data
 
     def _getNodeAtIndex(self, i):
-
         i = self._inRange(i)
 
         if i < self._size / 2:
-
             temp = self._head
             j = 0
-
             while temp.next != None:
                 if j == i:
                     break
                 else:
                     j += 1
                     temp = temp.next
-
             return temp
 
         else:
             temp = self._tail
             j = self._size - 1
-
             while temp.prev != None:
                 if j == i:
                     break
                 else:
                     j -= 1
                     temp = temp.prev
-
             return temp
 
     def pop(self, i=None):
-
         if i is not None:
             nodo = self._getNodeAtIndex(i)
+
             if i < 0:
                 i = self._size + i
 
@@ -151,57 +140,20 @@ class MyList(AbstractMyList):
             i = self._size + i
         if i < 0 or i > self._size - 1:
             raise Exception("Out of range")
-
         return i
 
-    def __len__(self):
-        return self._size
-
-    def reverse(self):
-        head = self._head
-        tail = self._tail
-
-        while(head != tail and head.next != tail):
-            head._data, tail._data = tail._data, head._data
-            head = head.next
-            tail = tail.prev
-
-        if(head.next == tail):
-            head._data, tail._data = tail._data, head._data
-
-    def __str__(self):
-        temp = self._head
-        stringa = "<"
-
-        while temp != None:
-            stringa += str(temp._data)
-            temp = temp.next
-            if(temp != None):
-                stringa += ","
-
-        stringa += ">"
-        return stringa
-
-    def copy(self):
-        newCopy = MyList()
-        newCopy.extend(self)
-        return newCopy
-
-
-    #codice longo
-
-
     def extend(self, list):
-        for nodo in iter(list):
+        for nodo in list:
             self.append(nodo)
 
     def insert(self, i, x):
         # controllo il valore di i
 
-        if i < 0:
-            i = self._size + i
-        if i < 0 or i > self._size:
-            raise Exception("Out of range")
+        if i == self._size:
+            self.append(x)
+            return
+
+        i = self._inRange(i)
 
         newNode = Node(x)
 
@@ -213,8 +165,7 @@ class MyList(AbstractMyList):
             newNode.prev = None
 
         # se è un inserimento in coda
-        if i == self._size:
-            self.append(x)
+
 
         # se è un inserimento in testa
         elif i == 0:
@@ -234,11 +185,9 @@ class MyList(AbstractMyList):
 
     def remove(self, x):
         pos = 0
+        for node in self:
+            if node == x:
 
-        node = self._head
-
-        while node != None:
-            if node._data == x:
                 # eliminazione in testa
                 if pos == 0:
                     if self._size == 1:
@@ -255,19 +204,15 @@ class MyList(AbstractMyList):
                         self._head = None
                     else:
                         self._tail = self._tail.prev
-                        self._tail.next = None
+                        self._tail.prev = None
                 else:
                     prevNode = node.prev
                     nextNode = node.next
                     prevNode.next = node.next
                     nextNode.prev = prevNode
-
                 del node
                 self._size -= 1
                 break
-
-            pos += 1
-            node = node.next
         else:
             raise Exception("Elemento non presente")
 
@@ -281,19 +226,24 @@ class MyList(AbstractMyList):
         if end != None:
             end = self._inRange(end)
 
-        if start > end:
-            raise Exception("start è maggiore di end")
-
         if start == None:
             start = 0
         if end == None:
             end = self._size - 1
 
-        pos = 0
-        for node in self:
-            if node._data == x:
-                return pos
-            pos += 1
+        if start > end:
+            raise Exception("start è maggiore di end")
+
+        pos = start
+        node = self._getNodeAtIndex(start)
+        if node is not None:
+            while pos < end and node.next is not None:
+                if node._data == x:
+                    return pos
+                pos += 1
+                node = node.next
+            raise Exception("Elemento non presente nella lista")
+        raise Exception("Lista vuota")
 
     def clear(self):
         """rimuove gli elementi dalla lista"""
@@ -305,11 +255,26 @@ class MyList(AbstractMyList):
                 del prev
             self._head = None
             self._tail = None
+            self._size = 0
 
-    def sort(key=None, reverse=False):
-        """Ordina gli elementi della lista in place (gli argonemnti possono essere utilizzati per ordinamenti personallizati)."""
+    def __str__(self):
+        if len(self) == 0:
+            return "<>" \
+                   ""
+        stringa = "<"
+        for elem in self:
+            stringa += str(elem) + ","
+        stringa = stringa[0:(len(stringa) - 1)] + ">"
 
+        return stringa
 
+    def __len__(self):
+        return self._size
+
+    def copy(self):
+        newCopy = MyList()
+        newCopy.extend(self)
+        return newCopy
 
 list = MyList()
 
@@ -318,45 +283,8 @@ list.append(3)
 list.append(5)
 list.append(7)
 list.append(9)
-print(list, "dim:", list.__len__())
-
-print("\n**************************************************************\n")
-
-print("lista in -2:", list[-2])
-print("pop di -2:", list.pop(-2))
-print(list, "dim:", list.__len__())
-
-print("\n**************************************************************\n")
-
-print("elementi con for in:")
-for i in list:
-    print(i, end=" ")
-print()
-
-print("\n**************************************************************\n")
-
-print("reverse lista")
-list.reverse()
-print(list, "dim:", list.__len__())
-
-print("\n**************************************************************\n")
-
-print("copia lista")
-l = list.copy()
-l.append(11)
-print("append a copia di 11")
-
-print("lista", list, "dim:", list.__len__())
-print("copia", l, "dim:", list.__len__())
-
-print("\n**************************************************************\n")
-
-list.insert(1,8)
-list.insert(3,6)
-print(list, "dim:", list.__len__())
-
-print("\n**************************************************************\n")
-
-list.remove(6)
-print("Rimuovo 6 dalla lista")
-print(list, "dim:", list.__len__())
+print(list)
+print("-----------------------")
+list1=list.copy()
+list1.clear()
+print(list1)
