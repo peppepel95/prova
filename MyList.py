@@ -184,25 +184,109 @@ class MyList(AbstractMyList):
         
 
 
-    def extend(self, list):
-        """Estende la lista appendendo gli elementi del parametro list"""
+       def extend(self, list):
+        for nodo in list:
+            self.append(nodo)
 
     def insert(self, i, x):
-        """Inserisce l'elemento x alla posizione i"""
+        # controllo il valore di i
+
+        i = self._inRange(i)
+
+        newNode = Node(x)
+
+        # se la lista è vuota
+        if self._size == 0:
+            self._head = newNode
+            self._tail = newNode
+            newNode.next = None
+            newNode.prev = None
+
+        # se è un inserimento in coda
+        if i == self._size:
+            self.append(x)
+
+        # se è un inserimento in testa
+        elif i == 0:
+            newNode.next = self._head
+            self._head = newNode
+            newNode.prev = None
+
+        # se non è né un inserimento in testa né in coda
+        else:
+            nodo = _getNodeAtIndex(i)
+            prevNode = nodo.prev
+            prevNode.next = newNode
+            newNode.prev = prevNode
+            newNode.next = nodo
+            nodo.prev = newNode
 
     def remove(self, x):
-        """Rimuove la prima occorrenza dell'elemento x all'interno della lista, genera una eccezione in caso di assenza di x nella lista"""
+        pos = 0
+        for node in self:
+            if node._data == x:
 
-    def index(self, x, start=0, end=None):
+                # eliminazione in testa
+                if pos == 0:
+                    if self._size == 1:
+                        self._head = None
+                        self._tail = None
+                    else:
+                        self._head = self._head.next
+                        self._head.prev = None
+
+                # eliminazione in coda
+                elif pos == self._size - 1:
+                    if pos == 0:
+                        self._tail = None
+                        self._head = None
+                    else:
+                        self._tail = self._tail.prev
+                        self._tail.prev = None
+                else:
+                    prevNode = node.prev
+                    nextNode = node.next
+                    prevNode.next = node.next
+                    nextNode.prev = prevNode
+                del node
+                break
+        else:
+            raise Exception("Elemento non presente")
+
+    def index(self, x, start=None, end=None):
         """Ritorna l'indice della prima occorrenza dell'elemento x nella lista
         (compreso tra start ed end, con start ed end impostati di default rispettivamente a 0 e size - 1),
          genera una eccezione in caso di assenza di x nella lista"""
 
-    def sort(cmp=None, key=None, reverse=False):
-        """Ordina gli elementi della lista in place (gli argonemnti possono essere utilizzati per ordinamenti personallizati)."""
+        if start != None:
+            start = self._inRange(start)
+        if end != None:
+            end = self._inRange(end)
+
+        if start > end:
+            raise Exception("start è maggiore di end")
+
+        if start == None:
+            start = 0
+        if end == None:
+            end = self._size - 1
+
+        pos = 0
+        for node in self:
+            if node._data == x:
+                return pos
+            pos += 1
 
     def clear(self):
         """rimuove gli elementi dalla lista"""
+        if self._head is not None:
+            pointer = self._head
+            while pointer.next != None:
+                prev = pointer
+                pointer = pointer.next
+                del prev
+            self._head = None
+            self._tail = None
 
 
 
