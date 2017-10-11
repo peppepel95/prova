@@ -9,6 +9,7 @@ class Node:
 
 
 class MyList(AbstractMyList):
+
     def __init__(self):
         self._size = 0
         self._head = None
@@ -28,11 +29,10 @@ class MyList(AbstractMyList):
         self._size += 1
 
     def __getitem__(self, i):
-
         if i < 0:
             i = self._size + i
         if i < 0 or i > self._size - 1:
-            raise Exception("Out of range")
+            raise IndexError("Out of range")
 
         if i < self._size / 2:
 
@@ -104,6 +104,7 @@ class MyList(AbstractMyList):
                 newHead = self._head.next
                 del self._head
                 self._head = newHead
+                self._size -= 1
                 return val
 
             if i == self._size - 1:
@@ -112,6 +113,7 @@ class MyList(AbstractMyList):
                 del self._tail
                 self._tail = newTail
                 self._tail.next = None
+                self._size -= 1
                 return val
 
             temp1 = nodo.prev
@@ -128,6 +130,7 @@ class MyList(AbstractMyList):
             self._tail = temp
             self._tail.next = None
 
+        self._size -= 1
         return val
 
     def count(self, x):
@@ -159,7 +162,6 @@ class MyList(AbstractMyList):
         tail = self._tail
 
         while(head != tail and head.next != tail):
-            print("true")
             head._data, tail._data = tail._data, head._data
             head = head.next
             tail = tail.prev
@@ -181,11 +183,16 @@ class MyList(AbstractMyList):
         return stringa
 
     def copy(self):
-        
+        newCopy = MyList()
+        newCopy.extend(self)
+        return newCopy
 
 
-       def extend(self, list):
-        for nodo in list:
+    #codice longo
+
+
+    def extend(self, list):
+        for nodo in iter(list):
             self.append(nodo)
 
     def insert(self, i, x):
@@ -203,7 +210,7 @@ class MyList(AbstractMyList):
             newNode.prev = None
 
         # se è un inserimento in coda
-        if i == self._size:
+        if i == self._size - 1:
             self.append(x)
 
         # se è un inserimento in testa
@@ -214,7 +221,7 @@ class MyList(AbstractMyList):
 
         # se non è né un inserimento in testa né in coda
         else:
-            nodo = _getNodeAtIndex(i)
+            nodo = self._getNodeAtIndex(i)
             prevNode = nodo.prev
             prevNode.next = newNode
             newNode.prev = prevNode
@@ -288,6 +295,9 @@ class MyList(AbstractMyList):
             self._head = None
             self._tail = None
 
+    def sort(cmp=None, key=None, reverse=False):
+        """Ordina gli elementi della lista in place (gli argonemnti possono essere utilizzati per ordinamenti personallizati)."""
+
 
 
 list = MyList()
@@ -297,13 +307,39 @@ list.append(3)
 list.append(5)
 list.append(7)
 list.append(9)
-print(list)
-print(list[-1])
-print(list.pop(-2))
-print(list)
-list.reverse()
-print(list)
+print(list, "dim:", list.__len__())
 
-lista = list
-lista.append(11)
-print(list)
+print("\n**************************************************************\n")
+
+print("lista in -2:", list[-2])
+print("pop di -2:", list.pop(-2))
+print(list, "dim:", list.__len__())
+
+print("\n**************************************************************\n")
+
+print("elementi con for in:")
+for i in list:
+    print(i, end=" ")
+print()
+
+print("\n**************************************************************\n")
+
+print("reverse lista")
+list.reverse()
+print(list, "dim:", list.__len__())
+
+print("\n**************************************************************\n")
+
+print("copia lista")
+l = list.copy()
+l.append(11)
+print("append a copia di 11")
+
+print("lista", list, "dim:", list.__len__())
+print("copia", l, "dim:", list.__len__())
+
+print("\n**************************************************************\n")
+
+list.insert(1,8)
+list.insert(3,6)
+print(list, "dim:", list.__len__())
