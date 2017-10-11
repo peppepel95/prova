@@ -198,7 +198,10 @@ class MyList(AbstractMyList):
     def insert(self, i, x):
         # controllo il valore di i
 
-        i = self._inRange(i)
+        if i < 0:
+            i = self._size + i
+        if i < 0 or i > self._size:
+            raise Exception("Out of range")
 
         newNode = Node(x)
 
@@ -210,7 +213,7 @@ class MyList(AbstractMyList):
             newNode.prev = None
 
         # se è un inserimento in coda
-        if i == self._size - 1:
+        if i == self._size:
             self.append(x)
 
         # se è un inserimento in testa
@@ -227,12 +230,15 @@ class MyList(AbstractMyList):
             newNode.prev = prevNode
             newNode.next = nodo
             nodo.prev = newNode
+        self._size += 1
 
     def remove(self, x):
         pos = 0
-        for node in self:
-            if node._data == x:
 
+        node = self._head
+
+        while node != None:
+            if node._data == x:
                 # eliminazione in testa
                 if pos == 0:
                     if self._size == 1:
@@ -249,14 +255,19 @@ class MyList(AbstractMyList):
                         self._head = None
                     else:
                         self._tail = self._tail.prev
-                        self._tail.prev = None
+                        self._tail.next = None
                 else:
                     prevNode = node.prev
                     nextNode = node.next
                     prevNode.next = node.next
                     nextNode.prev = prevNode
+
                 del node
+                self._size -= 1
                 break
+
+            pos += 1
+            node = node.next
         else:
             raise Exception("Elemento non presente")
 
@@ -295,7 +306,7 @@ class MyList(AbstractMyList):
             self._head = None
             self._tail = None
 
-    def sort(cmp=None, key=None, reverse=False):
+    def sort(key=None, reverse=False):
         """Ordina gli elementi della lista in place (gli argonemnti possono essere utilizzati per ordinamenti personallizati)."""
 
 
@@ -342,4 +353,10 @@ print("\n**************************************************************\n")
 
 list.insert(1,8)
 list.insert(3,6)
+print(list, "dim:", list.__len__())
+
+print("\n**************************************************************\n")
+
+list.remove(6)
+print("Rimuovo 6 dalla lista")
 print(list, "dim:", list.__len__())
