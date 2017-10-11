@@ -151,8 +151,38 @@ class MyList(AbstractMyList):
 
         return i
 
+    def __len__(self):
+        return self._size
+
     def reverse(self):
-        pass
+        head = self._head
+        tail = self._tail
+
+        while(head != tail and head.next != tail):
+            print("true")
+            head._data, tail._data = tail._data, head._data
+            head = head.next
+            tail = tail.prev
+
+        if(head.next == tail):
+            head._data, tail._data = tail._data, head._data
+
+    def __str__(self):
+        temp = self._head
+        stringa = "<"
+
+        while temp != None:
+            stringa += str(temp._data)
+            temp = temp.next
+            if(temp != None):
+                stringa += ","
+
+        stringa += ">"
+        return stringa
+
+    def copy(self):
+        
+
 
     def extend(self, list):
         """Estende la lista appendendo gli elementi del parametro list"""
@@ -174,8 +204,6 @@ class MyList(AbstractMyList):
     def clear(self):
         """rimuove gli elementi dalla lista"""
 
-    def copy(self):
-        """Ritorna una deepCopy"""
 
 
 list = MyList()
@@ -185,5 +213,13 @@ list.append(3)
 list.append(5)
 list.append(7)
 list.append(9)
-print(list[-2])
+print(list)
+print(list[-1])
 print(list.pop(-2))
+print(list)
+list.reverse()
+print(list)
+
+lista = list
+lista.append(11)
+print(list)
