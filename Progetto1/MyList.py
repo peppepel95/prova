@@ -291,17 +291,18 @@ class MyList(AbstractMyList):
         if end != None:
             end = self._inRange(end)
 
-        if start > end:
-            raise Exception("start è maggiore di end")
-
         if start == None:
             start = 0
         if end == None:
             end = self._size - 1
 
-        pos = 0
-        for node in self:
-            if node._data == x:
+        if start > end:
+            raise Exception("start è maggiore di end")
+
+
+        pos = start
+        for value in self[start:end]:
+            if value == x:
                 return pos
             pos += 1
 
@@ -347,74 +348,3 @@ class MyList(AbstractMyList):
 
     def __del__(self):
         self.clear()
-
-
-
-
-
-
-
-list1 = MyList()
-
-list1.append(1)
-list1.append(3)
-list1.append(5)
-list1.append(7)
-list1.append(9)
-print(list1, "dim:", list1.__len__())
-
-print("\n**************************************************************\n")
-
-print("lista in -2:", list1[-2])
-print("pop di -2:", list1.pop(-2))
-print(list1, "dim:", list1.__len__())
-
-print("\n**************************************************************\n")
-
-print("elementi con for in:")
-for i in list1:
-    print(i, end=" ")
-print()
-
-print("\n**************************************************************\n")
-
-print("reverse lista")
-list1.reverse()
-print(list1, "dim:", list1.__len__())
-
-print("\n**************************************************************\n")
-
-print("copia lista")
-l = list1.copy()
-l.append(11)
-print("append a copia di 11")
-
-print("lista", list1, "dim:", list1.__len__())
-print("copia", l, "dim:", list1.__len__())
-
-print("\n**************************************************************\n")
-
-list1.insert(1,8)
-list1.insert(3,6)
-print(list1, "dim:", list1.__len__())
-
-print("\n**************************************************************\n")
-
-list1.remove(6)
-print("Rimuovo 6 dalla lista")
-print(list1, "dim:", list1.__len__())
-
-print("\n**************************************************************\n")
-
-del list1[1]
-print(list1, "dim:", list1.__len__())
-
-list1[1] = 50
-print(list1, "dim:", list1.__len__())
-
-print("\n**************************************************************\n")
-
-l = MyList(list1)
-list1.append(5)
-l.append(5)
-print(l)
