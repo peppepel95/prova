@@ -2,11 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7c3365dd-68a7-4a06-b47c-e8294c982361" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Progetto1.zip" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Progetto1/prova.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/verifica.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Progetto1/AbstractMyList.py" afterPath="$PROJECT_DIR$/Progetto1/AbstractMyList.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Progetto1/MyList.py" afterPath="$PROJECT_DIR$/Progetto1/MyList.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Progetto1/verifica.py" afterPath="$PROJECT_DIR$/Progetto1/verifica.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -21,7 +19,7 @@
         <entry file="file://$PROJECT_DIR$/Progetto1/MyList.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="400">
-              <caret line="440" column="0" lean-forward="true" selection-start-line="440" selection-start-column="0" selection-end-line="440" selection-end-column="0" />
+              <caret line="883" column="0" lean-forward="false" selection-start-line="883" selection-start-column="0" selection-end-line="883" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -31,7 +29,7 @@
         <entry file="file://$PROJECT_DIR$/Progetto1/verifica.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="356">
-              <caret line="76" column="12" lean-forward="true" selection-start-line="76" selection-start-column="12" selection-end-line="76" selection-end-column="12" />
+              <caret line="76" column="12" lean-forward="false" selection-start-line="76" selection-start-column="12" selection-end-line="76" selection-end-column="12" />
               <folding />
             </state>
           </provider>
@@ -101,13 +99,6 @@
               <item name="prova" type="462c0819:PsiDirectoryNode" />
               <item name="Progetto1" type="462c0819:PsiDirectoryNode" />
               <item name="MyList.py" type="8704e2dd:PyFileNode" />
-            </path>
-            <path>
-              <item name="prova" type="b2602c69:ProjectViewProjectNode" />
-              <item name="prova" type="462c0819:PsiDirectoryNode" />
-              <item name="Progetto1" type="462c0819:PsiDirectoryNode" />
-              <item name="MyList.py" type="8704e2dd:PyFileNode" />
-              <item name="Node" type="dd8bbb05:PyElementNode" />
             </path>
           </expand>
           <select />
@@ -382,7 +373,7 @@
     <entry file="file://$PROJECT_DIR$/Progetto1/verifica.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="356">
-          <caret line="76" column="12" lean-forward="true" selection-start-line="76" selection-start-column="12" selection-end-line="76" selection-end-column="12" />
+          <caret line="76" column="12" lean-forward="false" selection-start-line="76" selection-start-column="12" selection-end-line="76" selection-end-column="12" />
           <folding />
         </state>
       </provider>
@@ -390,7 +381,7 @@
     <entry file="file://$PROJECT_DIR$/Progetto1/MyList.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="400">
-          <caret line="440" column="0" lean-forward="true" selection-start-line="440" selection-start-column="0" selection-end-line="440" selection-end-column="0" />
+          <caret line="883" column="0" lean-forward="false" selection-start-line="883" selection-start-column="0" selection-end-line="883" selection-end-column="0" />
           <folding />
         </state>
       </provider>
