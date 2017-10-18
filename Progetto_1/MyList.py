@@ -1,4 +1,5 @@
 from Progetto1.AbstractMyList import AbstractMyList
+from Progetto1.QuickSort import quicksort
 
 
 class Node:
@@ -39,10 +40,11 @@ class MyList(AbstractMyList):
         self._size += 1
 
     def __getitem__(self, i):
+
         if isinstance(i, int):
             pass
         elif isinstance(i, slice):
-            return self._slice(slice)
+            return self._slice(i)
         else:
             raise TypeError("Invalid argument type")
 
@@ -316,7 +318,8 @@ class MyList(AbstractMyList):
                 pos += 1
             nodo = nodo.next
 
-        return None
+        raise Exception("valore non trovato")
+
 
     def clear(self):
         """rimuove gli elementi dalla lista"""
@@ -329,8 +332,9 @@ class MyList(AbstractMyList):
             self._head = None
             self._tail = None
 
-    def sort(key=None, reverse=False):
+    def sort(self, key=None, reverse=False):
         """Ordina gli elementi della lista in place (gli argonemnti possono essere utilizzati per ordinamenti personallizati)."""
+        quicksort(self, 0, len(self) - 1, key, reverse)
 
     def __add__(self, other):
         """a = a + b + .."""
@@ -355,7 +359,7 @@ class MyList(AbstractMyList):
         self.pop(key)
 
     def __setitem__(self, key, value):
-        self.insert(key, value)
+        self._getNodeAtIndex(key)._data = value
 
     def __del__(self):
         self.clear()
@@ -421,13 +425,42 @@ class MyList(AbstractMyList):
         start = self._inRange(sl.start)
         stop = self._inRange(sl.stop)
         step = sl.step
-        raise Exception("da implementare se richiesta!")
+
+        if step is None:
+            step = 1
+
+        nodo = self._getNodeAtIndex(start)
+        lista = MyList()
+
+        i = 0
+
+        while nodo is not None and i <= stop - start:
+            if i == 0:
+                lista.append(nodo._data)
+            else:
+                if step == 1:
+                    lista.append(nodo._data)
+                else:
+                    for val in range(0, step - 1):
+                        if nodo is None:
+                            break
+                        i += 1
+                        nodo = nodo.next
+
+                    if nodo is not None:
+                        lista.append(nodo._data)
+
+            i += 1
+            if nodo is not None:
+                nodo = nodo.next
+
+        return lista
 
     def suffix_iterative(self):
         if self != None:
             copy = self.copy()
             result = [MyList(copy)]
-            for i in range(0,self.__len__()-1):
+            for i in range(0, self.__len__() - 1):
                 copy.pop(0)
                 result.append(MyList(copy))
             result.append(MyList())
