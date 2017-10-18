@@ -10,15 +10,15 @@ class Node:
     def __str__(self):
         return self._data
 
-class MyList(AbstractMyList):
 
+class MyList(AbstractMyList):
     def __init__(self, *args):
 
         self._size = 0
         self._head = None
         self._tail = None
 
-        if(args != None):
+        if (args.__len__() != 0):
             try:
                 some_object_iterator = iter(args[0])
                 self.extend(args[0])
@@ -39,6 +39,13 @@ class MyList(AbstractMyList):
         self._size += 1
 
     def __getitem__(self, i):
+        if isinstance(i, int):
+            pass
+        elif isinstance(i, slice):
+            return self._slice(slice)
+        else:
+            raise TypeError("Invalid argument type")
+
         if i < 0:
             i = self._size + i
         if i < 0 or i > self._size - 1:
@@ -171,12 +178,12 @@ class MyList(AbstractMyList):
         head = self._head
         tail = self._tail
 
-        while(head != tail and head.next != tail):
+        while (head != tail and head.next != tail):
             head._data, tail._data = tail._data, head._data
             head = head.next
             tail = tail.prev
 
-        if(head.next == tail):
+        if (head.next == tail):
             head._data, tail._data = tail._data, head._data
 
     def __str__(self):
@@ -186,7 +193,7 @@ class MyList(AbstractMyList):
         while temp != None:
             stringa += str(temp._data)
             temp = temp.next
-            if(temp != None):
+            if (temp != None):
                 stringa += ","
 
         stringa += ">"
@@ -197,8 +204,7 @@ class MyList(AbstractMyList):
         newCopy.extend(self)
         return newCopy
 
-
-    #codice longo
+    # codice longo
 
 
     def extend(self, list):
@@ -299,13 +305,18 @@ class MyList(AbstractMyList):
         if start > end:
             raise Exception("start è maggiore di end")
 
+        pos = 0
+        nodo = self._getNodeAtIndex(start)
+        lun = end - start
 
-        pos = start
-        for value in self[start:end]:
-            if value == x:
-                return pos
-            pos += 1
+        while nodo != None and pos <= lun:
+            if nodo._data == x:
+                return pos + start
+            else:
+                pos += 1
+            nodo = nodo.next
 
+        return None
 
     def clear(self):
         """rimuove gli elementi dalla lista"""
@@ -331,7 +342,7 @@ class MyList(AbstractMyList):
         for val in other:
             lista.append(val)
 
-        return list
+        return lista
 
     def __iadd__(self, other):
         self.extend(other)
@@ -344,7 +355,86 @@ class MyList(AbstractMyList):
         self.pop(key)
 
     def __setitem__(self, key, value):
-        self.insert(key,value)
+        self.insert(key, value)
 
     def __del__(self):
         self.clear()
+
+    def __eq__(self, other):
+        if other == None:
+            return False
+        else:
+            if self._head == None:
+                if other._head == None:
+                    return True
+                else:
+                    return False
+            else:
+                if other._head == None:
+                    return False
+                else:
+                    pointer1 = self._head
+                    pointer2 = other._head
+                    equals = True
+                    while pointer1 != None and pointer2 != None and equals:
+                        equals = pointer1._data == pointer2._data
+                        pointer1 = pointer1.next
+                        pointer2 = pointer2.next
+                    if pointer1 == None or pointer2 == None:
+                        return False
+                    else:
+                        return equals
+
+    def __le__(self, other):
+        return (self < other or self == other)
+
+    def __lt__(self, other):
+        if self == None or other == None:
+            raise Exception
+        else:
+            pointer1 = self._head
+            pointer2 = other._head
+            cond = False
+            while pointer1 != None and pointer2 != None:
+                if pointer1._data < pointer2._data:
+                    return True
+                elif pointer1._data == pointer2._data:
+                    pointer1 = pointer1.next
+                    pointer2 = pointer2.next
+                else:
+                    return False
+            if pointer1 == None:
+                return True
+            else:
+                return False
+
+    def __ne__(self, other):
+        return not (self.__eq__(other))
+
+    def __gt__(self, other):
+        return not (self < other or self == other)
+
+    def __ge__(self, other):
+        return not self < other
+
+    def _slice(self, sl):
+        start = self._inRange(sl.start)
+        stop = self._inRange(sl.stop)
+        step = sl.step
+        raise Exception("da implementare se richiesta!")
+
+    def suffix_iterative(self):
+        if self != None:
+            copy = self.copy()
+            result = [MyList(copy)]
+            for i in range(0,self.__len__()-1):
+                copy.pop(0)
+                result.append(MyList(copy))
+            result.append(MyList())
+            result.reverse()
+
+            for temp in result:
+                print(temp, end=" ")
+            return result
+        else:
+            return MyList()
