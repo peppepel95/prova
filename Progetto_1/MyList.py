@@ -456,18 +456,41 @@ class MyList(AbstractMyList):
 
         return lista
 
-    def suffix_iterative(self):
-        if self != None:
-            copy = self.copy()
-            result = [MyList(copy)]
-            for i in range(0, self.__len__() - 1):
-                copy.pop(0)
-                result.append(MyList(copy))
-            result.append(MyList())
-            result.reverse()
+    def _setSlice (self, sl, seq):
+        start = self._inRange(sl.start)
+        stop = self._inRange(sl.stop)
+        step = sl.step
 
-            for temp in result:
-                print(temp, end=" ")
-            return result
-        else:
-            return MyList()
+        if start is None:
+            start = 0
+        if stop is None:
+            stop = len(self) - 1
+        if step is None:
+            step = 1
+
+        node = self._getNodeAtIndex(start)
+        while start <= stop and node is not None:
+            node._data = seq[start]
+            start += step
+            for i in range(0,step-1):
+                if node is not None:
+                    nodo = nodo.next
+                else:
+                    break
+
+
+def suffix_iterative(lista):
+    if lista != None:
+        copy = lista.copy()
+        result = MyList()
+        result.append(MyList(copy))
+        for i in range(0, lista.__len__() - 1):
+            copy.pop(0)
+            result.append(MyList(copy))
+        result.append(MyList())
+        result.reverse()
+
+        return result
+    else:
+        return MyList()
+

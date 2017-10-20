@@ -1,4 +1,4 @@
-from Progetto_1.MyList import MyList
+from Progetto_1.MyList import MyList, suffix_iterative
 import sys
 
 def verificaLista(lista, name):
@@ -81,7 +81,8 @@ def verificaLista(lista, name):
     # prova sort
     lista.sort()
     print(name," ordinata: ", lista)
-    lista.suffix_iterative()
+    result = suffix_iterative(lista)
+    print(result)
 
 
 list1 = MyList()
