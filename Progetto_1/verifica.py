@@ -18,11 +18,13 @@ def verificaLista(lista, name):
     print("5 occorre ", count, " volte")
     # test di index e __len__
     print("Restituisci la posizione di 5 e poi di 7 nella ", name)
+    print("Cerca posizione di 5")
     try:
         index = lista.index(5)
         print("Posizione di 5: ", index)
     except Exception as e:
         print(e)
+    print("Cerca posizione di 7")
     try:
         index = lista.index(7)
         print("Posizione di 7: ", index)
@@ -52,10 +54,10 @@ def verificaLista(lista, name):
     print("La ", name, " contiene: ", lista)
     # prova __add__
     list3 = lista + lista
-    print("Lista 1 + Lista 2 = ", list3)
+    print(name," + ",name," = ", list3)
     # prova copy
     list3 = lista.copy()
-    print("Crea copia di Lista 1 in Lista 3: ", list3)
+    print("Crea copia di ",name," in Lista 3: ", list3)
     list3.insert(0, 10)
     print("La Lista 3 contiene: ", list3)
     # prova __eq__
@@ -75,10 +77,10 @@ def verificaLista(lista, name):
     print("Distruggi la Lista 3: ", list3)
     # prova reverse
     lista.reverse()
-    print("Inverti gli elementi della copia di Lista 1: ", lista)
+    print("Inverti gli elementi della copia di", name,": ", lista)
     # prova sort
     lista.sort()
-    print("Lista 1 ordinata: ", lista)
+    print(name," ordinata: ", lista)
     lista.suffix_iterative()
 
 
