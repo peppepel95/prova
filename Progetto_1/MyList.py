@@ -1,5 +1,5 @@
-from Progetto1.AbstractMyList import AbstractMyList
-from Progetto1.QuickSort import quicksort
+from Progetto_1.AbstractMyList import AbstractMyList
+from Progetto_1.QuickSort import quicksort
 
 
 class Node:
@@ -318,7 +318,7 @@ class MyList(AbstractMyList):
                 pos += 1
             nodo = nodo.next
 
-        raise Exception("valore non trovato")
+        raise Exception("Valore non trovato")
 
 
     def clear(self):
