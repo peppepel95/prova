@@ -44,7 +44,7 @@ class MyList(AbstractMyList):
         if isinstance(i, int):
             pass
         elif isinstance(i, slice):
-            return self._slice(i)
+            return self._getSlice(i)
         else:
             raise TypeError("Invalid argument type")
 
@@ -206,9 +206,6 @@ class MyList(AbstractMyList):
         newCopy.extend(self)
         return newCopy
 
-    # codice longo
-
-
     def extend(self, list):
         for nodo in iter(list):
             self.append(nodo)
@@ -320,7 +317,6 @@ class MyList(AbstractMyList):
 
         raise Exception("Valore non trovato")
 
-
     def clear(self):
         """rimuove gli elementi dalla lista"""
         if self._head is not None:
@@ -359,6 +355,14 @@ class MyList(AbstractMyList):
         self.pop(key)
 
     def __setitem__(self, key, value):
+        if isinstance(key, int):
+            pass
+        elif isinstance(key, slice):
+            self._setSlice(key, value)
+            return
+        else:
+            raise TypeError("Invalid argument type")
+
         self._getNodeAtIndex(key)._data = value
 
     def __del__(self):
@@ -421,11 +425,15 @@ class MyList(AbstractMyList):
     def __ge__(self, other):
         return not self < other
 
-    def _slice(self, sl):
+    def _getSlice(self, sl):
         start = self._inRange(sl.start)
         stop = self._inRange(sl.stop)
         step = sl.step
 
+        if start is None:
+            start = 0
+        if stop is None:
+            stop = len(self) - 1
         if step is None:
             step = 1
 
@@ -456,7 +464,7 @@ class MyList(AbstractMyList):
 
         return lista
 
-    def _setSlice (self, sl, seq):
+    def _setSlice(self, sl, seq):
         start = self._inRange(sl.start)
         stop = self._inRange(sl.stop)
         step = sl.step
@@ -472,7 +480,7 @@ class MyList(AbstractMyList):
         while start <= stop and node is not None:
             node._data = seq[start]
             start += step
-            for i in range(0,step-1):
+            for i in range(0, step - 1):
                 if node is not None:
                     nodo = nodo.next
                 else:
@@ -494,3 +502,12 @@ def suffix_iterative(lista):
     else:
         return MyList()
 
+
+def suffix_ric(lista):
+    if len(lista) == 0:
+        return [lista]
+
+    lista1 = lista.copy()
+    lista1.pop(0)
+
+    return suffix_ric(lista1) + [lista]

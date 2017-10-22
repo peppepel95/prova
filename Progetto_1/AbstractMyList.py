@@ -35,7 +35,7 @@ class AbstractMyList(metaclass=ABCMeta):
         """Ritorna il numero di occorrenze di x presenti nella lista"""
 
     @abstractmethod
-    def sort(cmp=None, key=None, reverse=False):
+    def sort(self, key=None, reverse=False):
         """Ordina gli elementi della lista in place (gli argonemnti possono essere utilizzati per ordinamenti personallizati)."""
 
     @abstractmethod
