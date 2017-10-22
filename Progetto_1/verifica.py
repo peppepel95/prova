@@ -1,4 +1,4 @@
-from Progetto_1.MyList import MyList, suffix_iterative
+from Progetto_1.MyList import MyList, suffix_iterative, suffix_ric
 import sys
 
 def verificaLista(lista, name):
@@ -82,7 +82,9 @@ def verificaLista(lista, name):
     lista.sort()
     print(name," ordinata: ", lista)
     result = suffix_iterative(lista)
-    print(result)
+    print("Tutti i suffissi di ",name," ottenuti iterativamente: ",result)
+    result = suffix_ric(lista)
+    print("Tutti i suffissi di ",name," ottenuti ricorsivamente: ",result)
 
 
 list1 = MyList()
