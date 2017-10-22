@@ -1,5 +1,4 @@
 from Progetto_1.MyList import MyList, suffix_iterative
-import sys
 
 def verificaLista(lista, name):
     print("La ", name, " contiene: ", lista)

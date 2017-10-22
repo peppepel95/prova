@@ -82,34 +82,38 @@ class MyList(AbstractMyList):
 
     def _getNodeAtIndex(self, i):
 
-        i = self._inRange(i)
+        if isinstance(i, int):
 
-        if i < self._size / 2:
+            i = self._inRange(i)
 
-            temp = self._head
-            j = 0
+            if i < self._size / 2:
 
-            while temp.next != None:
-                if j == i:
-                    break
-                else:
-                    j += 1
-                    temp = temp.next
+                temp = self._head
+                j = 0
 
-            return temp
+                while temp.next != None:
+                    if j == i:
+                        break
+                    else:
+                        j += 1
+                        temp = temp.next
 
+                return temp
+
+            else:
+                temp = self._tail
+                j = self._size - 1
+
+                while temp.prev != None:
+                    if j == i:
+                        break
+                    else:
+                        j -= 1
+                        temp = temp.prev
+
+                return temp
         else:
-            temp = self._tail
-            j = self._size - 1
-
-            while temp.prev != None:
-                if j == i:
-                    break
-                else:
-                    j -= 1
-                    temp = temp.prev
-
-            return temp
+            raise TypeError("Invalid argument type")
 
     def pop(self, i=None):
 
@@ -166,12 +170,16 @@ class MyList(AbstractMyList):
         return count
 
     def _inRange(self, i):
-        if i < 0:
-            i = self._size + i
-        if i < 0 or i > self._size - 1:
-            raise Exception("Out of range")
 
-        return i
+        if isinstance(i, int):
+            if i < 0:
+                i = self._size + i
+            if i < 0 or i > self._size - 1:
+                raise Exception("Out of range")
+
+            return i
+        else:
+            raise TypeError("Invalid argument type")
 
     def __len__(self):
         return self._size
@@ -180,19 +188,19 @@ class MyList(AbstractMyList):
         head = self._head
         tail = self._tail
 
-        while (head != tail and head.next != tail):
+        while head != tail and head.next != tail:
             head._data, tail._data = tail._data, head._data
             head = head.next
             tail = tail.prev
 
-        if (head.next == tail):
+        if head.next == tail:
             head._data, tail._data = tail._data, head._data
 
     def __str__(self):
         temp = self._head
         stringa = "<"
 
-        while temp != None:
+        while temp is not None:
             stringa += str(temp._data)
             temp = temp.next
             if (temp != None):
@@ -213,10 +221,7 @@ class MyList(AbstractMyList):
     def insert(self, i, x):
         # controllo il valore di i
 
-        if i < 0:
-            i = self._size + i
-        if i < 0 or i > self._size:
-            raise Exception("Out of range")
+        i = self._inRange(i)
 
         newNode = Node(x)
 
@@ -426,65 +431,76 @@ class MyList(AbstractMyList):
         return not self < other
 
     def _getSlice(self, sl):
-        start = self._inRange(sl.start)
-        stop = self._inRange(sl.stop)
-        step = sl.step
 
-        if start is None:
-            start = 0
-        if stop is None:
-            stop = len(self) - 1
-        if step is None:
-            step = 1
+        if isinstance(sl, slice):
+            start = self._inRange(sl.start)
+            stop = self._inRange(sl.stop)
+            step = sl.step
 
-        nodo = self._getNodeAtIndex(start)
-        lista = MyList()
+            if start is None:
+                start = 0
+            if stop is None:
+                stop = len(self) - 1
+            if step is None:
+                step = 1
 
-        i = 0
+            nodo = self._getNodeAtIndex(start)
+            lista = MyList()
 
-        while nodo is not None and i <= stop - start:
-            if i == 0:
-                lista.append(nodo._data)
-            else:
-                if step == 1:
+            i = 0
+
+            while nodo is not None and i <= stop - start:
+                if i == 0:
                     lista.append(nodo._data)
                 else:
-                    for val in range(0, step - 1):
-                        if nodo is None:
-                            break
-                        i += 1
-                        nodo = nodo.next
-
-                    if nodo is not None:
+                    if step == 1:
                         lista.append(nodo._data)
+                    else:
+                        for val in range(0, step - 1):
+                            if nodo is None:
+                                break
+                            i += 1
+                            nodo = nodo.next
 
-            i += 1
-            if nodo is not None:
-                nodo = nodo.next
+                        if nodo is not None:
+                            lista.append(nodo._data)
 
-        return lista
+                i += 1
+                if nodo is not None:
+                    nodo = nodo.next
+
+            return lista
+
+        else:
+            raise TypeError("Invalid argument type")
 
     def _setSlice(self, sl, seq):
-        start = self._inRange(sl.start)
-        stop = self._inRange(sl.stop)
-        step = sl.step
 
-        if start is None:
-            start = 0
-        if stop is None:
-            stop = len(self) - 1
-        if step is None:
-            step = 1
+        if isinstance(sl, slice) and type(seq) in [str, list, tuple]:
 
-        node = self._getNodeAtIndex(start)
-        while start <= stop and node is not None:
-            node._data = seq[start]
-            start += step
-            for i in range(0, step - 1):
-                if node is not None:
-                    nodo = nodo.next
-                else:
-                    break
+            start = self._inRange(sl.start)
+            stop = self._inRange(sl.stop)
+            step = sl.step
+
+            if start is None:
+                start = 0
+            if stop is None:
+                stop = len(self) - 1
+            if step is None:
+                step = 1
+
+            node = self._getNodeAtIndex(start)
+            while start <= stop and node is not None:
+                node._data = seq[start]
+                start += step
+                for i in range(0, step - 1):
+                    if node is not None:
+                        nodo = nodo.next
+                    else:
+                        break
+
+        else:
+            raise TypeError("Invalid argument type")
 
 
 def suffix_iterative(lista):
