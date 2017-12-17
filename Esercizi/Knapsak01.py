@@ -11,7 +11,7 @@ def Knapsak_0_1 (p, v, P):
         raise ValueError("input errato")
     n_items = len(v)
 
-    M = [[0] * (P+1) for k in range(n_items)] #matrice con P+1 colonne e n_items righe
+    M = [[0] * (P+1) for k in range(n_items)]                           # matrice con P+1 colonne e n_items righe
     C = [[False] * (P+1) for k in range(n_items)]
 
     for i in range(0,n_items):                                          # ad ogni passo calcoliamo la soluzione M[i][peso]
