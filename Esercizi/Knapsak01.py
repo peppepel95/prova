@@ -1,3 +1,4 @@
+from queue import PriorityQueue
 """"
 0/1 Knapsak: problema dello zaino
 definiamo:
@@ -58,7 +59,7 @@ def printMatriceK01(M):
         print("]\n")
     print()
 
-def printKnapsakResult(tup):
+def printKnapsakResult(p, v, tup):
     M = tup[0]
     C = tup[1]
     printMatriceK01(M)
@@ -71,7 +72,39 @@ def printKnapsakResult(tup):
         print("{:7} {:7} {:7}".format("item " + str(item), "Cost " + str(v[item - 1]), "Volume " + str(p[item - 1])))
 
 
+def Knapsak_unb (p, v, P):
+    if len(v) != len(p):
+        raise ValueError("input errato")
+    n_items = len(v)
 
+    pq = PriorityQueue()
+    item = []
+    for i in range(n_items):
+        pq.put((p[i],v[i]))
+    for i in range(n_items):
+        item.append(pq.get())
+
+    M = []
+    A = []
+    for i in range(P+1):
+        M.append(0)
+
+    for peso in range(1,P+1):
+        i = 0
+        while i != len(item) and item[i][0] <= peso:
+            i += 1
+
+        l = PriorityQueue()
+        for k in range(0, i):
+            key = M[peso - item[k][0]] + item[k][1]
+            l.put((-key, k))
+        if i != 0:
+            t = l.get()
+            M[peso] = - t[0]
+            if t[1] != 0:
+                A.append(t[1])
+
+    return M, A
 
 
 """*******************************************************Main*******************************************************"""
@@ -79,4 +112,12 @@ def printKnapsakResult(tup):
 p = [3, 5, 7, 4, 3, 9, 2, 11, 5]
 v = [2, 3, 3, 4, 4, 5, 7, 8, 8]
 
-printKnapsakResult(Knapsak_0_1(p, v, 15))
+p1 = [1, 3, 6]
+v1 = [1, 6, 7]
+
+printKnapsakResult(p, v, Knapsak_0_1(p, v, 15))
+M, A = Knapsak_unb(p1, v1, 15)
+
+print("\nKnapsak_unb Otimum: " , M[-1])
+for item in A:
+    print("item ", item)
