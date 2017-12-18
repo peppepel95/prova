@@ -27,20 +27,30 @@ def editTranscript(s1, s2, M): # j ^ k <- righe colonne
     while M[j][k] > 0:
         temp = min(M[j-1][k-1],M[j-1][k],M[j][k-1])
 
-        if temp == M[j-1][k]:
+        print(M[j][k], j, k)
+
+        if temp == M[j - 1][k - 1]:
+            if temp == M[j - 1][k] and temp < M[j][k]:
+                solution.append("D")
+                j -= 1
+                continue
+            if temp == M[j][k - 1] and temp < M[j][k]:
+                solution.append("I")
+                k -= 1
+                continue
+            if temp == M[j][k]:
+                solution.append("M")
+                j -= 1
+                k -= 1
+            else:
+                solution.append("R")
+                j -= 1
+                k -= 1
+        elif temp == M[j-1][k]:
             solution.append("D")
             j -= 1
         elif temp == M[j][k-1]:
             solution.append("I")
-            k -= 1
-        elif temp == M[j-1][k-1]:
-            if temp == M[j][k]:
-                solution.append("M")
-            j -= 1
-            k -= 1
-        else:
-            solution.append("R")
-            j -= 1
             k -= 1
 
     return "".join(reversed(solution))
@@ -56,6 +66,6 @@ def printMatriceED(M):
             print(M[-1][j] , ",", end=" ", sep="")
     print("]\n")
 
-M = editDistance("winter","writers")
+M = editDistance("vintner","writers")
 printMatriceED(M)
-print(editTranscript("winter","writers",M))
+print(editTranscript("vintner","writers",M))
