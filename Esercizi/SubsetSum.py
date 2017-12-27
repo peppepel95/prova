@@ -22,6 +22,7 @@ def subset_sum (v, target):
     x = [0] * len(v)
     solve_subset_sum(v, target, 0, 0, sum(v), x)
 
+
 valori = [7,11,13,24]
 M = 31
 subset_sum(valori, M)
