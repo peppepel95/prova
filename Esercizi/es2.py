@@ -1,5 +1,6 @@
 from Esercizi.TdP_collections.graphs.graph import Graph
 from Esercizi.TdP_collections.graphs.dfs import DFS_complete
+from Esercizi.TdP_collections.tree.linked_binary_tree import LinkedBinaryTree
 
 class Node:
     def __init__(self):
@@ -35,7 +36,14 @@ def PrintBridgeEdge(G):
         raise TypeError("Grafo G non connesso")
 
     MakeTreeDict(discovered,NodeList,tree)
+    bt = LinkedBinaryTree()
+    binTree(None,tree,NodeList[0],bt)
+    for node in bt.inorder():
+        print(node)
+    #findBridge(tree,NodeList,discovered)
 
+
+def findBridge(tree,NodeList,discovered):
     for el in tree:
         tree[el] = (tree[el], False)
 
@@ -68,7 +76,19 @@ def PrintBridgeEdge(G):
         tree[v] = (node,bridge)
 
 
+def binTree(p, tree, node, bt):
+    if p is None and bt.root() is None:
+        pos = bt._add_root(node)
+    elif p is not None:
+        if bt.left(p) is None:
+            pos = bt._add_left(p, node)
+        else:
+            pos = bt._add_right(p, node)
+    else:
+        return
 
+    binTree(pos, tree, tree[node]._left, bt)
+    binTree(pos, tree, tree[node]._right, bt)
 
 
 
