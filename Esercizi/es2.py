@@ -9,6 +9,13 @@ class Node:
         self._parent = None
 
 def MakeTreeDict(discovered, nodeList, treeDict):
+    """
+    usata nella binaryTreeFromDfs restituisce l'albero della dfs come dict
+    :param discovered: (key:vertex, value:edge)
+    :param nodeList: lista dei vertici ordinata
+    :return treeDict: albero restituito come dict
+
+    """
     for i in range(1, len(nodeList) + 1):
         v = nodeList[-i]
         e = discovered[v]
@@ -21,6 +28,12 @@ def MakeTreeDict(discovered, nodeList, treeDict):
             treeDict[v]._parent = u
 
 def binTree(p, tree, bt):
+    """
+    usata nella binaryTreeFromDfs prende l'albero come dict e lo trasforma in un LinkedBinaryTree
+    :param p: current_position
+    :param tree: tree as dict
+    :return bt: LinkedBinaryTree
+    """
     if p is not None:
         vertex = p.element()
         node = tree[vertex]
@@ -32,6 +45,11 @@ def binTree(p, tree, bt):
             binTree(pos, tree, bt)
 
 def binaryTreeFromDfs(G):
+    """
+    chiama una DFS_Complete sul grafo G -> restituisce l'albero della dfs come LinkedBinaryTree e i vertici in discovered (key:vertex, value:edge)
+    :param G: graph
+    :return: bt LinkedBinaryTree, discovered dict
+    """
     discovered = DFS_complete(G)
     NodeList = []
     tree = {}
@@ -54,13 +72,16 @@ def binaryTreeFromDfs(G):
     return bt, discovered
 
 def findBridges(G):
+    """
+    ricerca gli archi bridge partendo dai risultati della binaryTreeFromDfs
+    :param G: graph
+    :return: bridgeEdges list
+    """
     bt, discovered = binaryTreeFromDfs(G)
 
     i = 1
     nd = 1
     reached = []
-    low = 0
-    high = 0
     ed1 = None
     ed2 = None
 
@@ -103,11 +124,22 @@ def findBridges(G):
         ed1 = None
         ed2 = None
 
+    bridgeEdges = []
+    for vertex in discovered:
+        edge, number, nd, low, high = discovered[vertex]
+        if edge is not None and high <= number and nd > (number - low):     #bridge condition
+            bridgeEdges.append(edge)
+
+    return bridgeEdges
 
 
 
 
-def findBridge(tree,NodeList,discovered):
+
+
+
+
+def findBridgeOLD(tree,NodeList,discovered):
     for el in tree:
         tree[el] = (tree[el], False)
 
@@ -143,6 +175,15 @@ def findBridge(tree,NodeList,discovered):
 
 
 
+
+
+
+
+
+
+
+
+
 """*******************************************MAIN*******************************************"""
 
 
@@ -165,4 +206,7 @@ G.insert_edge(c,f)
 G.insert_edge(c,g)
 
 
-findBridges(G)
+bridgeEdges = findBridges(G)
+
+for edge in bridgeEdges:
+    print(edge)
