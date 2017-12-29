@@ -20,7 +20,18 @@ def MakeTreeDict(discovered,nodeList,treeDict):
                 treeDict[u]._right = v
             treeDict[v]._parent = u
 
-def PrintBridgeEdge(G):
+def binTree(p, tree, bt):
+    if p is not None:
+        vertex = p.element()
+        node = tree[vertex]
+        if node._left is not None:
+            pos = bt._add_left(p,node._left)
+            binTree(pos,tree,bt)
+        if node._right is not None:
+            pos = bt._add_right(p,node._right)
+            binTree(pos, tree, bt)
+
+def binaryTreeFromDfs(G):
     discovered = DFS_complete(G)
     NodeList = []
     tree = {}
@@ -37,10 +48,11 @@ def PrintBridgeEdge(G):
 
     MakeTreeDict(discovered,NodeList,tree)
     bt = LinkedBinaryTree()
-    binTree(None,tree,NodeList[0],bt)
-    for node in bt.inorder():
-        print(node)
-    #findBridge(tree,NodeList,discovered)
+    p = bt._add_root(NodeList[0])
+    binTree(p,tree,bt)
+
+    return bt
+
 
 
 def findBridge(tree,NodeList,discovered):
@@ -76,20 +88,6 @@ def findBridge(tree,NodeList,discovered):
         tree[v] = (node,bridge)
 
 
-def binTree(p, tree, node, bt):
-    if p is None and bt.root() is None:
-        pos = bt._add_root(node)
-    elif p is not None:
-        if bt.left(p) is None:
-            pos = bt._add_left(p, node)
-        else:
-            pos = bt._add_right(p, node)
-    else:
-        return
-
-    binTree(pos, tree, tree[node]._left, bt)
-    binTree(pos, tree, tree[node]._right, bt)
-
 
 
 
@@ -97,7 +95,7 @@ def binTree(p, tree, node, bt):
 
 
 G = Graph()
-"""
+
 a = G.insert_vertex("a")
 b = G.insert_vertex("b")
 c = G.insert_vertex("c")
@@ -113,19 +111,6 @@ G.insert_edge(d,e)
 G.insert_edge(e,f)
 G.insert_edge(c,f)
 G.insert_edge(c,g)
-"""
-a = G.insert_vertex("a")
-b = G.insert_vertex("b")
-c = G.insert_vertex("c")
-d = G.insert_vertex("d")
-e = G.insert_vertex("e")
-f = G.insert_vertex("f")
-G.insert_edge(a,b)
-G.insert_edge(a,e)
-G.insert_edge(e,b)
-G.insert_edge(e,d)
-G.insert_edge(c,b)
-G.insert_edge(d,c)
-G.insert_edge(d,f)
 
-PrintBridgeEdge(G)
+
+binaryTreeFromDfs(G)
