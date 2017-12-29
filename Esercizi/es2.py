@@ -8,7 +8,7 @@ class Node:
         self._right = None
         self._parent = None
 
-def MakeTreeDict(discovered,nodeList,treeDict):
+def MakeTreeDict(discovered, nodeList, treeDict):
     for i in range(1, len(nodeList) + 1):
         v = nodeList[-i]
         e = discovered[v]
@@ -51,7 +51,59 @@ def binaryTreeFromDfs(G):
     p = bt._add_root(NodeList[0])
     binTree(p,tree,bt)
 
-    return bt
+    return bt, discovered
+
+def findBridges(G):
+    bt, discovered = binaryTreeFromDfs(G)
+
+    i = 1
+    nd = 1
+    reached = []
+    low = 0
+    high = 0
+    ed1 = None
+    ed2 = None
+
+    for p in bt.postorder():
+        if bt.left(p) is not None:
+            nd += discovered[bt.left(p).element()][2]
+        if bt.right(p) is not None:
+            nd += discovered[bt.right(p).element()][2]
+
+        discovered[p.element()] = (discovered[p.element()], i, nd, 0, 0)
+                                                                            #reset
+        i += 1
+        nd = 1
+
+    for p in bt.postorder():
+        if bt.left(p) is not None:
+            reached.append(discovered[bt.left(p).element()][3])
+            reached.append(discovered[bt.left(p).element()][4])
+            ed1 = discovered[bt.left(p).element()][0]
+        if bt.right(p) is not None:
+            reached.append(discovered[bt.right(p).element()][3])
+            reached.append(discovered[bt.right(p).element()][4])
+            ed2 = discovered[bt.right(p).element()][0]
+
+        ed3 = discovered[p.element()][0]
+
+        for e in G.incident_edges(p.element()):
+            if e is not ed1 and e is not ed2 and e is not ed3:              # back edge
+                v = e.opposite(p.element())
+                reached.append(discovered[v][1])
+
+        old = discovered[p.element()]
+        reached.append(old[1])
+        low = min(reached)
+        high = max(reached)
+        discovered[p.element()] = (old[0], old[1], old[2], low, high)
+        print(p.element(), discovered[p.element()])
+                                                                            #reset
+        reached.clear()
+        ed1 = None
+        ed2 = None
+
+
 
 
 
@@ -113,4 +165,4 @@ G.insert_edge(c,f)
 G.insert_edge(c,g)
 
 
-binaryTreeFromDfs(G)
+findBridges(G)
