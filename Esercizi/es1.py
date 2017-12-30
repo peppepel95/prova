@@ -35,8 +35,10 @@ class MyGraph(Graph):
                     if deg > 0:
                         vetex_degree[v] = deg
                     else:
-                        vetex_degree[v] = 0
-                vetex_degree[current_vertex] = 0
+                        del vetex_degree[v]
+
+            if vetex_degree.__contains__(current_vertex):
+                del vetex_degree[current_vertex]
 
         return vetex_cover
 
@@ -217,7 +219,7 @@ G3.insert_edge(s, q)
 G3.insert_edge(q, p)
 G3.insert_edge(r, i)
 
-G = generateGraph(1000,200000)
+G = generateGraph(10000,10000000)
 
 cProfile.run("G.greedy_vertex_cover1()")
 cProfile.run("G.greedy_vertex_cover2()")
