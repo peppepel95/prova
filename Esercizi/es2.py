@@ -165,7 +165,7 @@ def findBridgeOLD(tree,NodeList,discovered):
                 ed2 = None
             ed3 = discovered[v]
 
-            for e in G.incident_edges(v):
+            for e in G1.incident_edges(v):
                 if e is not ed1 and e is not ed2 and e is not ed3:
                     bridge = False
 
@@ -187,26 +187,49 @@ def findBridgeOLD(tree,NodeList,discovered):
 """*******************************************MAIN*******************************************"""
 
 
-G = Graph()
+G1 = Graph()
 
-a = G.insert_vertex("a")
-b = G.insert_vertex("b")
-c = G.insert_vertex("c")
-d = G.insert_vertex("d")
-e = G.insert_vertex("e")
-f = G.insert_vertex("f")
-g = G.insert_vertex("g")
-G.insert_edge(a,b)
-G.insert_edge(a,c)
-G.insert_edge(b,c)
-G.insert_edge(c,d)
-G.insert_edge(d,e)
-G.insert_edge(e,f)
-G.insert_edge(c,f)
-G.insert_edge(c,g)
+a = G1.insert_vertex("a")
+b = G1.insert_vertex("b")
+c = G1.insert_vertex("c")
+d = G1.insert_vertex("d")
+e = G1.insert_vertex("e")
+f = G1.insert_vertex("f")
+g = G1.insert_vertex("g")
+G1.insert_edge(a, b)
+G1.insert_edge(a, c)
+G1.insert_edge(b, c)
+G1.insert_edge(c, d)
+G1.insert_edge(d, e)
+G1.insert_edge(e, f)
+G1.insert_edge(c, f)
+G1.insert_edge(c, g)
+
+G2 = Graph()
+
+a = G2.insert_vertex("a")
+b = G2.insert_vertex("b")
+c = G2.insert_vertex("c")
+d = G2.insert_vertex("d")
+e = G2.insert_vertex("e")
+f = G2.insert_vertex("f")
+g = G2.insert_vertex("g")
+h = G2.insert_vertex("h")
+i = G2.insert_vertex("i")
+G2.insert_edge(a, b)
+G2.insert_edge(b, c)
+G2.insert_edge(a, c)
+G2.insert_edge(c, d)
+G2.insert_edge(d, e)
+G2.insert_edge(e, f)
+G2.insert_edge(f, g)
+G2.insert_edge(g, d)
+G2.insert_edge(c, h)
+G2.insert_edge(b, h)
+G2.insert_edge(h, i)
 
 
-bridgeEdges = findBridges(G)
+bridgeEdges = findBridges(G2)
 
 for edge in bridgeEdges:
     print(edge)
