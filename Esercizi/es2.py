@@ -133,57 +133,6 @@ def findBridges(G):
     return bridgeEdges
 
 
-
-
-
-
-
-
-def findBridgeOLD(tree,NodeList,discovered):
-    for el in tree:
-        tree[el] = (tree[el], False)
-
-    for i in range(1,len(NodeList)+1):
-        v = NodeList[-i]
-        node, bridge_old = tree[v]
-        bridge = True
-
-        if (node._left is not None and tree[node._left][1]):
-            print("edge: (", v.element(), ",", node._left.element(), ") è un bridge")
-        if (node._right is not None and tree[node._right][1]):
-            print("edge: (", v.element(), ",", node._right.element(), ") è un bridge")
-        if (node._left is not None and not tree[node._left][1]) or (node._right is not None and not tree[node._right][1]):
-            bridge = False
-        else:
-            if node._left is not None:
-                ed1 = discovered[node._left]
-            else:
-                ed1 = None
-            if node._right is not None:
-                ed2 = discovered[node._right]
-            else:
-                ed2 = None
-            ed3 = discovered[v]
-
-            for e in G1.incident_edges(v):
-                if e is not ed1 and e is not ed2 and e is not ed3:
-                    bridge = False
-
-        tree[v] = (node,bridge)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 """*******************************************MAIN*******************************************"""
 
 
