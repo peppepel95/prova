@@ -44,12 +44,12 @@ class MyGraph(Graph):
 
 
     ''''Aggiorna la mappa vertex_degree se è la prima volta che si incontra il vertice u - O(1)'''
-    def update_degree(self, u, vertex_degree):
+    def update_degree (self, u, vertex_degree):
         if not vertex_degree.__contains__(u):
             vertex_degree[u] = self.degree(u)
 
     '''Cerca il vertice che ha il grado più alto tra i vertici adiacenti a u, tenendo conto degli archi già coperti - O(deg(u))'''
-    def find_max(self, u, vertex_degree):
+    def find_max(self,u,vertex_degree):
         max_degree = vertex_degree[u]
         max_vertex = u
         for edge in self.incident_edges(u):
@@ -58,7 +58,7 @@ class MyGraph(Graph):
             if vertex_degree[v] > max_degree:
                 max_degree = vertex_degree[v]
                 max_vertex = v
-        return (max_vertex, max_degree)
+        return (max_vertex,max_degree)
 
     '''Restituisce la lista dei vertici che risolve il problema di vertex cover con metodologia gready. - O(m)?'''
     def greedy_vertex_cover2(self):
@@ -66,24 +66,33 @@ class MyGraph(Graph):
         vertex_cover = []
         stack = []
         discovered = {}
-        for e in self.edges():  # O(m)
+        for e in self.edges(): #O(m)
             discovered[e] = False
-        for vertex in self.vertices():  # O(1)
+        for vertex in self.vertices():#O(1)
             current_vertex = vertex
-            self.update_degree(current_vertex, vertex_degree)
+            self.update_degree(current_vertex,vertex_degree)
             stack.append(current_vertex)
             break
-        while (True):  # O(m) ?
-            max_vertex, max_degree = self.find_max(current_vertex, vertex_degree)  # O(deg(current_vertex))
+        while(True): #O(m) ?
+            max_vertex, max_degree = self.find_max(current_vertex,vertex_degree) #O(deg(current_vertex))
             if max_degree == 0:
                 if len(stack) == 0:
-                    return vertex_cover
+                    if len(vertex_degree) == self.vertex_count():
+                        return vertex_cover
+                    else:
+                        for vertex in self.vertices():
+                            if vertex not in vertex_degree.keys():
+                                current_vertex = vertex
+                                self.update_degree(current_vertex,vertex_degree)
+                                stack.append(current_vertex)
+                                break
+                        continue
                 else:
                     current_vertex = stack.pop()
                     continue
             if current_vertex == max_vertex:
                 vertex_cover.append(current_vertex)
-                for edge in self.incident_edges(current_vertex):  # O(deg(current_vertex))
+                for edge in self.incident_edges(current_vertex): #O(deg(current_vertex))
                     if not discovered[edge]:
                         discovered[edge] = True
                         u = edge.opposite(current_vertex)
@@ -219,7 +228,8 @@ G3.insert_edge(s, q)
 G3.insert_edge(q, p)
 G3.insert_edge(r, i)
 
-G = generateGraph(10000,10000000)
+#G = generateGraph(10000,10000000)
+G = generateGraph(1000,100000)
 
 cProfile.run("G.greedy_vertex_cover1()")
 cProfile.run("G.greedy_vertex_cover2()")
