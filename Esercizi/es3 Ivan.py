@@ -1,6 +1,6 @@
-from TdP_collections.priority_queue.adaptable_heap_priority_queue import AdaptableHeapPriorityQueue
-from TdP_collections.priority_queue.heap_priority_queue import HeapPriorityQueue
-from TdP_collections.graphs.graph import Graph
+from Esercizi.TdP_collections.priority_queue.adaptable_heap_priority_queue import AdaptableHeapPriorityQueue
+from Esercizi.TdP_collections.priority_queue.heap_priority_queue import HeapPriorityQueue
+from Esercizi.TdP_collections.graphs.graph import Graph
 
 def emergency_call(g, pos, src, k):
   d = {}                                        # d[v] is upper bound from s to v
