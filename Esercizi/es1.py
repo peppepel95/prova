@@ -229,7 +229,7 @@ G3.insert_edge(q, p)
 G3.insert_edge(r, i)
 
 #G = generateGraph(10000,10000000)
-G = generateGraph(1000,100000)
+G = G2
 
 cProfile.run("G.greedy_vertex_cover1()")
 cProfile.run("G.greedy_vertex_cover2()")
