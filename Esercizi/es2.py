@@ -2,82 +2,87 @@ from Esercizi.TdP_collections.graphs.graph import Graph
 from Esercizi.TdP_collections.graphs.dfs import DFS_complete
 from Esercizi.TdP_collections.tree.linked_binary_tree import LinkedBinaryTree
 
+
 class Node:
     def __init__(self):
         self._left = None
         self._right = None
         self._parent = None
 
-def MakeTreeDict(discovered, nodeList, treeDict):
+
+def make_tree_dict(discovered, node_list, tree_dict):
     """
     usata nella binaryTreeFromDfs restituisce l'albero della dfs come dict
     :param discovered: (key:vertex, value:edge)
-    :param nodeList: lista dei vertici ordinata
-    :return treeDict: albero restituito come dict
+    :param node_list: lista dei vertici ordinata
+    :param tree_dict: albero restituito come dict
 
     """
-    for i in range(1, len(nodeList) + 1):
-        v = nodeList[-i]
+    for i in range(1, len(node_list) + 1):
+        v = node_list[-i]
         e = discovered[v]
         if e is not None:
             u = e.opposite(v)
-            if treeDict[u]._left is None:
-                treeDict[u]._left = v
+            if tree_dict[u]._left is None:
+                tree_dict[u]._left = v
             else:
-                treeDict[u]._right = v
-            treeDict[v]._parent = u
+                tree_dict[u]._right = v
+            tree_dict[v]._parent = u
 
-def binTree(p, tree, bt):
+
+def from_tree_dict_to_bin_tree(p, tree, bt):
     """
     usata nella binaryTreeFromDfs prende l'albero come dict e lo trasforma in un LinkedBinaryTree
     :param p: current_position
     :param tree: tree as dict
-    :return bt: LinkedBinaryTree
+    :param bt: LinkedBinaryTree
     """
     if p is not None:
         vertex = p.element()
         node = tree[vertex]
         if node._left is not None:
             pos = bt._add_left(p,node._left)
-            binTree(pos,tree,bt)
+            from_tree_dict_to_bin_tree(pos,tree,bt)
         if node._right is not None:
             pos = bt._add_right(p,node._right)
-            binTree(pos, tree, bt)
+            from_tree_dict_to_bin_tree(pos, tree, bt)
 
-def binaryTreeFromDfs(G):
+
+def binary_tree_from_dfs(G):
     """
     chiama una DFS_Complete sul grafo G -> restituisce l'albero della dfs come LinkedBinaryTree e i vertici in discovered (key:vertex, value:edge)
     :param G: graph
     :return: bt LinkedBinaryTree, discovered dict
     """
     discovered = DFS_complete(G)
-    NodeList = []
+    node_list = []
     tree = {}
     count = 0
 
     for node in discovered:
         if node is None:
             count += 1
-        NodeList.append(node)
+        node_list.append(node)
         tree[node] = Node()
 
     if count > 1:
         raise TypeError("Grafo G non connesso")
 
-    MakeTreeDict(discovered,NodeList,tree)
+    make_tree_dict(discovered, node_list, tree)
     bt = LinkedBinaryTree()
-    p = bt._add_root(NodeList[0])
-    binTree(p,tree,bt)
+    p = bt._add_root(node_list[0])
+    from_tree_dict_to_bin_tree(p, tree, bt)
 
     return bt, discovered
 
-def findBridges(G):
+
+def bridge(G):
     """
     ricerca gli archi bridge partendo dai risultati della binaryTreeFromDfs
     :param G: graph
     :return: bridgeEdges list
     """
-    bt, discovered = binaryTreeFromDfs(G)
+    bt, discovered = binary_tree_from_dfs(G)
 
     i = 1
     nd = 1
@@ -92,7 +97,7 @@ def findBridges(G):
             nd += discovered[bt.right(p).element()][2]
 
         discovered[p.element()] = (discovered[p.element()], i, nd, 0, 0)
-                                                                            #reset
+                                                                            # reset
         i += 1
         nd = 1
 
@@ -118,8 +123,7 @@ def findBridges(G):
         low = min(reached)
         high = max(reached)
         discovered[p.element()] = (old[0], old[1], old[2], low, high)
-        print(p.element(), discovered[p.element()])
-                                                                            #reset
+                                                                            # reset
         reached.clear()
         ed1 = None
         ed2 = None
@@ -127,10 +131,16 @@ def findBridges(G):
     bridgeEdges = []
     for vertex in discovered:
         edge, number, nd, low, high = discovered[vertex]
-        if edge is not None and high <= number and nd > (number - low):     #bridge condition
+        if edge is not None and high <= number and nd > (number - low):     # bridge condition
             bridgeEdges.append(edge)
 
-    return bridgeEdges
+    if len(bridgeEdges):
+        return bridgeEdges
+    else:
+        return None
+
+
+
 
 
 """*******************************************MAIN*******************************************"""
@@ -178,7 +188,8 @@ G2.insert_edge(b, h)
 G2.insert_edge(h, i)
 
 
-bridgeEdges = findBridges(G2)
+bridgeEdges = bridge(G2)
 
-for edge in bridgeEdges:
-    print(edge)
+if bridgeEdges is not None:
+    for edge in bridgeEdges:
+        print(edge)
