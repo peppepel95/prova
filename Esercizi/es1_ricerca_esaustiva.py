@@ -44,7 +44,7 @@ class MyGraph(Graph):
             if new_status:
                 next1 = vertex_list.copy()
                 next1[k] = (next1[k][0], 0)
-                self._backtrack_min_vertex_cover(next1, new_status, s, k+1)
+                self._backtrack_min_vertex_cover(next1, new_status, s, k + 1)
 
             next2 = vertex_list.copy()
             next2[k] = (next2[k][0], 1)
@@ -153,7 +153,42 @@ G3.insert_edge(s, q)
 G3.insert_edge(q, p)
 G3.insert_edge(r, i)
 
-vertex_cover = G2.min_vertex_cover()
+G5 = MyGraph()
+
+a = G5.insert_vertex("a")
+b = G5.insert_vertex("b")
+c = G5.insert_vertex("c")
+d = G5.insert_vertex("d")
+e = G5.insert_vertex("e")
+f = G5.insert_vertex("f")
+g = G5.insert_vertex("g")
+h = G5.insert_vertex("h")
+i = G5.insert_vertex("i")
+l = G5.insert_vertex("l")
+m = G5.insert_vertex("m")
+n = G5.insert_vertex("n")
+
+G5.insert_edge(a, b)
+G5.insert_edge(b, c)
+G5.insert_edge(d, b)
+G5.insert_edge(d, c)
+G5.insert_edge(a, m)
+G5.insert_edge(a, l)
+G5.insert_edge(c, e)
+G5.insert_edge(d, f)
+G5.insert_edge(i, e)
+G5.insert_edge(l, i)
+G5.insert_edge(n, i)
+G5.insert_edge(m, n)
+G5.insert_edge(m, l)
+G5.insert_edge(n, h)
+G5.insert_edge(h, f)
+G5.insert_edge(h, g)
+G5.insert_edge(g, f)
+G5.insert_edge(e, g)
+
+
+vertex_cover = G5.min_vertex_cover()
 
 for v in vertex_cover:
     if vertex_cover[v]:

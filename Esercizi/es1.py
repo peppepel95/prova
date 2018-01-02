@@ -148,6 +148,81 @@ class MyGraph(Graph):
         return soluzione
 
 
+    def min_vertex_cover(self):
+        current_status = {}
+        vertex_list = [None]*self.vertex_count()
+        solution = {}
+        i = 0
+
+        for v in self.vertices():
+            solution[v] = 1
+
+            vertex_list[i] = (v, 0)
+            i += 1
+
+            for edge in self.incident_edges(v):
+                if edge in current_status:
+                    current_status[edge] += 1
+                else:
+                    current_status[edge] = 1
+
+        self._backtrack_min_vertex_cover(vertex_list,current_status,solution,0)
+        return solution
+
+
+    def _backtrack_min_vertex_cover(self, vertex_list, current_status, s, k):
+        if k == len(s):
+            if self._is_a_solution(vertex_list):
+
+                sum = 0
+                for v, val in vertex_list:
+                    sum += val
+
+                current_sum = 0
+                for v in s:
+                    current_sum += s[v]
+
+                if sum < current_sum:
+                    for v, val in vertex_list:
+                        s[v] = val
+        else:
+            new_status = self._could_be_a_sol(current_status, vertex_list[k][0])
+            if new_status:
+                next1 = vertex_list.copy()
+                next1[k] = (next1[k][0], 0)
+                self._backtrack_min_vertex_cover(next1, new_status, s, k + 1)
+
+            next2 = vertex_list.copy()
+            next2[k] = (next2[k][0], 1)
+            self._backtrack_min_vertex_cover(next2, current_status, s, k + 1)
+
+    def _is_a_solution(self, vertex_list):
+        status = {}
+        for edge in self.edges():
+            status[edge] = 0
+
+        for v, val in vertex_list:
+            if val:
+                for edge in self.incident_edges(v):
+                    status[edge] += 1
+
+        for edge in status:
+            if not status[edge]:
+                return False
+
+        return True
+
+    def _could_be_a_sol(self, current_status, vertex): # dato lo stato corrente, e dato che non prendo quel vertice
+        new_status = current_status.copy()
+
+        for edge in self.incident_edges(vertex):
+            new_status[edge] -= 1
+            if not new_status[edge]:
+                return False
+
+        return new_status
+
+
 def generateGraph(n,m):
     G = MyGraph()
     l = []
@@ -166,6 +241,7 @@ def generateGraph(n,m):
             except:
                 cond = True
     return G
+
 
 G2 = MyGraph()
 
@@ -228,8 +304,43 @@ G3.insert_edge(s, q)
 G3.insert_edge(q, p)
 G3.insert_edge(r, i)
 
+G5 = MyGraph()
+
+a = G5.insert_vertex("a")
+b = G5.insert_vertex("b")
+c = G5.insert_vertex("c")
+d = G5.insert_vertex("d")
+e = G5.insert_vertex("e")
+f = G5.insert_vertex("f")
+g = G5.insert_vertex("g")
+h = G5.insert_vertex("h")
+i = G5.insert_vertex("i")
+l = G5.insert_vertex("l")
+m = G5.insert_vertex("m")
+n = G5.insert_vertex("n")
+
+G5.insert_edge(a, b)
+G5.insert_edge(b, c)
+G5.insert_edge(d, b)
+G5.insert_edge(d, c)
+G5.insert_edge(a, m)
+G5.insert_edge(a, l)
+G5.insert_edge(c, e)
+G5.insert_edge(d, f)
+G5.insert_edge(i, e)
+G5.insert_edge(l, i)
+G5.insert_edge(n, i)
+G5.insert_edge(m, n)
+G5.insert_edge(m, l)
+G5.insert_edge(n, h)
+G5.insert_edge(h, f)
+G5.insert_edge(h, g)
+G5.insert_edge(g, f)
+G5.insert_edge(e, g)
+
+G = G5
 #G = generateGraph(10000,10000000)
-G = G2
+G = generateGraph(50,100)
 
 cProfile.run("G.greedy_vertex_cover1()")
 cProfile.run("G.greedy_vertex_cover2()")
