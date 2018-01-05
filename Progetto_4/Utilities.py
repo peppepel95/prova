@@ -1,4 +1,4 @@
-from .es1_greedy_vertex_cover import MyGraph
+from Progetto_4.es1_min_vertex_cover import MyGraph
 import random
 
 def knownGraphs(n):
