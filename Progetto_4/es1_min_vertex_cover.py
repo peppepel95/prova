@@ -1,8 +1,50 @@
-from Progetto_4.TdP_collections.graphs.graph import Graph
-from Progetto_4.TdP_collections.priority_queue.heap_priority_queue import HeapPriorityQueue
+from TdP_collections.graphs.graph import Graph
+from TdP_collections.priority_queue.heap_priority_queue import HeapPriorityQueue
+
+def newDFS(g, u, discovered, value):
+
+    for e in g.incident_edges(u):
+        v = e.opposite(u)
+        if discovered[v] == 0:
+            discovered[v] = value
+            newDFS(g, v, discovered, value)
 
 
 class MyGraph(Graph):
+
+    def sconnectGraph(self):
+
+        grafi = []
+        disc_vert = {}
+        index = 1
+
+        for vertex in self.vertices():
+            disc_vert[vertex] = 0
+
+        for vertex in disc_vert:
+            if disc_vert[vertex] == 0: # se è 0 non è stato visitato
+                newDFS(self, vertex, disc_vert, index)
+                index += 1
+
+        for i in range(index):
+            grafi.append(MyGraph(directed=self.is_directed()))
+            for vertex in disc_vert:
+                if disc_vert[vertex] == i+1:
+                    grafi[i].insert_vertex(vertex.element())
+            for edge in self.edges():
+                v1, v2 = edge.endpoints()
+                v1 = grafi[i].vertices()[v1]
+                v2 = grafi[i].vertices()[v2]
+                if (disc_vert[v1] == i + 1) and (disc_vert[v2] == i + 1):
+                    grafi[i].insert_edge(v1, v2)
+        return grafi
+
+    def mvc(self):
+        grafi = self.sconnectGraph()
+        sol = {}
+        for grafo in grafi:
+            sol.update(grafo.min_vertex_cover())
+        return sol
 
     def min_vertex_cover(self):
         current_status = {}
