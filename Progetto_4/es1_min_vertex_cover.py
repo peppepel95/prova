@@ -1,6 +1,6 @@
-from Progetto_4.TdP_collections.graphs.graph import Graph
-from Progetto_4.TdP_collections.priority_queue.heap_priority_queue import HeapPriorityQueue
-
+from TdP_collections.graphs.graph import Graph
+import cProfile
+from .Utilities import generateGraph, knownGraphs
 
 class MyGraph(Graph):
 
@@ -8,22 +8,19 @@ class MyGraph(Graph):
         current_status = {}
         vertex_list = [None]*self.vertex_count()
         solution = {}
-        pq = HeapPriorityQueue()
+        i = 0
 
         for v in self.vertices():
             solution[v] = 1
 
-            pq.add(-self.degree(v), v)
+            vertex_list[i] = (v, 0)
+            i += 1
 
             for edge in self.incident_edges(v):
                 if edge in current_status:
                     current_status[edge] += 1
                 else:
                     current_status[edge] = 1
-
-        for i in range(len(pq)):
-            k, v = pq.remove_min()
-            vertex_list[i] = (v, 0)
 
         self._backtrack_min_vertex_cover(vertex_list,current_status,solution,0)
         return solution
@@ -79,3 +76,17 @@ class MyGraph(Graph):
 
         return new_status
 
+
+G = generateGraph(30, 80)
+
+vertex_cover = None
+
+cProfile.run("vertex_cover = G.min_vertex_cover()")
+
+
+sum = 0
+if vertex_cover is not None:
+    for v in vertex_cover:
+        if vertex_cover[v]:
+            sum += 1
+    print(sum)

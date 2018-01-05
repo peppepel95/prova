@@ -1,5 +1,6 @@
-from Progetto_4.TdP_collections.graphs.graph import Graph
-
+from TdP_collections.graphs.graph import Graph
+import cProfile
+from .Utilities import generateGraph, knownGraphs
 
 class MyGraph(Graph):
 
@@ -222,7 +223,6 @@ class MyGraph(Graph):
         return new_status
 
 
-"""
 G = generateGraph(50,100)
 
 cProfile.run("G.greedy_vertex_cover1()")
@@ -240,4 +240,3 @@ print("***************2****************")
 vertex_cover = G.greedy_vertex_cover3()
 print(len(vertex_cover))
 print("***************3****************")
-"""
