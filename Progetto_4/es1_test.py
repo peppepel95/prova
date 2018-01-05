@@ -1,7 +1,7 @@
 from Progetto_4.Utilities import generateGraph
 import cProfile
 
-G = generateGraph(40, 120)
+G = generateGraph(50, 250)
 
 vertex_cover = None
 
