@@ -3,7 +3,6 @@ from Progetto_4.TdP_collections.priority_queue.heap_priority_queue import HeapPr
 
 
 class MyGraph(Graph):
-
     def _DFS(self, u, discovered, value):
 
         for e in self.incident_edges(u):
@@ -31,9 +30,9 @@ class MyGraph(Graph):
         if index == 2:  # un unico grafo
             return [self, ]
 
-        for i in range(index-1):
+        for i in range(index - 1):
             grafi.append(MyGraph(directed=self.is_directed()))
-            
+
             for edge in self.edges():
                 v1, v2 = edge.endpoints()
                 if (disc_vert[v1][0] == i + 1) and (disc_vert[v2][0] == i + 1):
@@ -144,4 +143,3 @@ class MyGraph(Graph):
                     return False
 
         return new_status
-
