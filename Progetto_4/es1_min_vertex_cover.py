@@ -143,3 +143,41 @@ class MyGraph(Graph):
                     return False
 
         return new_status
+
+    def greedy_vertex_cover(self):
+        vetex_degree = {}
+        vetex_cover = []
+
+        for vertex in self.vertices():
+            vetex_degree[vertex] = self.degree(vertex)
+
+        max_degree = 1
+
+        while max_degree:
+            max_degree = 0
+            current_vertex = None
+
+            for v in vetex_degree:
+                if vetex_degree[v] > max_degree:
+                    max_degree = vetex_degree[v]
+                    current_vertex = v
+
+            if current_vertex is None:
+                return vetex_cover
+            else:
+                vetex_cover.append(current_vertex)
+
+            for edge in self.incident_edges(current_vertex):
+                v = edge.opposite(current_vertex)
+                if vetex_degree.__contains__(v):
+                    deg = vetex_degree[v]
+                    deg -= 1
+                    if deg > 0:
+                        vetex_degree[v] = deg
+                    else:
+                        del vetex_degree[v]
+
+            if vetex_degree.__contains__(current_vertex):
+                del vetex_degree[current_vertex]
+
+        return vetex_cover
