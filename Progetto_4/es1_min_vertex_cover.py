@@ -5,10 +5,11 @@ def newDFS(g, u, discovered, value):
 
     for e in g.incident_edges(u):
         v = e.opposite(u)
-        if discovered[v] == 0:
-            discovered[v] = value
+        if discovered[v][0] == 0:
+            discovered[v][0] = value
             newDFS(g, v, discovered, value)
-
+    if g.degree(u) == 0:
+        discovered[u][0] = value
 
 class MyGraph(Graph):
 
@@ -19,24 +20,33 @@ class MyGraph(Graph):
         index = 1
 
         for vertex in self.vertices():
-            disc_vert[vertex] = 0
+            disc_vert[vertex] = [0, None]
 
         for vertex in disc_vert:
-            if disc_vert[vertex] == 0: # se è 0 non è stato visitato
+            if disc_vert[vertex][0] == 0: # se è 0 non è stato visitato
                 newDFS(self, vertex, disc_vert, index)
                 index += 1
 
-        for i in range(index):
+        if index == 2: # un unico grafo
+            return [self, ]
+
+        for i in range(index-1):
             grafi.append(MyGraph(directed=self.is_directed()))
-            for vertex in disc_vert:
-                if disc_vert[vertex] == i+1:
-                    grafi[i].insert_vertex(vertex.element())
+            
             for edge in self.edges():
                 v1, v2 = edge.endpoints()
-                v1 = grafi[i].vertices()[v1]
-                v2 = grafi[i].vertices()[v2]
-                if (disc_vert[v1] == i + 1) and (disc_vert[v2] == i + 1):
-                    grafi[i].insert_edge(v1, v2)
+                if (disc_vert[v1][0] == i + 1) and (disc_vert[v2][0] == i + 1):
+                    if disc_vert[v1][1] is None:
+                        ver1 = grafi[i].insert_vertex(v1.element())
+                        disc_vert[v1][1] = ver1
+                    else:
+                        ver1 = disc_vert[v1][1]
+                    if disc_vert[v2][1] is None:
+                        ver2 = grafi[i].insert_vertex(v2.element())
+                        disc_vert[v2][1] = ver2
+                    else:
+                        ver2 = disc_vert[v2][1]
+                    grafi[i].insert_edge(ver1, ver2)
         return grafi
 
     def mvc(self):
