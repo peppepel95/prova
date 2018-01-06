@@ -1,38 +1,85 @@
-from Progetto_4.TdP_collections.graphs.graph import Graph
-from Progetto_4.TdP_collections.priority_queue.heap_priority_queue import HeapPriorityQueue
+from TdP_collections.graphs.graph import Graph
+from TdP_collections.priority_queue.heap_priority_queue import HeapPriorityQueue
 
+def newDFS(g, u, discovered, value):
+
+    for e in g.incident_edges(u):
+        v = e.opposite(u)
+        if discovered[v][0] == 0:
+            discovered[v][0] = value
+            newDFS(g, v, discovered, value)
+    if g.degree(u) == 0:
+        discovered[u][0] = value
 
 class MyGraph(Graph):
+
+    def sconnectGraph(self):
+
+        grafi = []
+        disc_vert = {}
+        index = 1
+
+        for vertex in self.vertices():
+            disc_vert[vertex] = [0, None]
+
+        for vertex in disc_vert:
+            if disc_vert[vertex][0] == 0: # se è 0 non è stato visitato
+                newDFS(self, vertex, disc_vert, index)
+                index += 1
+
+        if index == 2: # un unico grafo
+            return [self, ]
+
+        for i in range(index-1):
+            grafi.append(MyGraph(directed=self.is_directed()))
+            
+            for edge in self.edges():
+                v1, v2 = edge.endpoints()
+                if (disc_vert[v1][0] == i + 1) and (disc_vert[v2][0] == i + 1):
+                    if disc_vert[v1][1] is None:
+                        ver1 = grafi[i].insert_vertex(v1.element())
+                        disc_vert[v1][1] = ver1
+                    else:
+                        ver1 = disc_vert[v1][1]
+                    if disc_vert[v2][1] is None:
+                        ver2 = grafi[i].insert_vertex(v2.element())
+                        disc_vert[v2][1] = ver2
+                    else:
+                        ver2 = disc_vert[v2][1]
+                    grafi[i].insert_edge(ver1, ver2)
+        return grafi
+
+    def mvc(self):
+        grafi = self.sconnectGraph()
+        sol = {}
+        for grafo in grafi:
+            sol.update(grafo.min_vertex_cover())
+        return sol
+
     def min_vertex_cover(self):
-        """
-        calcola un vertex cover di dimensione minima
-        :return: solution_list lista dei vertici del vertex cover
-        """
         current_status = {}
-        vertex_list = [None] * self.vertex_count()
+        vertex_list = [None]*self.vertex_count()
         solution = {}
         pq = HeapPriorityQueue()
 
-        for v in self.vertices():  # O(n*log(n))
+        for v in self.vertices():
             solution[v] = 1
-            pq.add(-self.degree(v), v)  # O(log(n))
 
-        for edge in self.edges():  # O(m)
-            current_status[edge] = 2
+            pq.add(-self.degree(v), v)
 
-        for i in range(len(pq)):  # O(n*log(n))
+            for edge in self.incident_edges(v):
+                if edge in current_status:
+                    current_status[edge] += 1
+                else:
+                    current_status[edge] = 1
+
+        for i in range(len(pq)):
             k, v = pq.remove_min()
             vertex_list[i] = (v, 0)
 
-        self._backtrack_min_vertex_cover(vertex_list, current_status, solution, 0)
+        self._backtrack_min_vertex_cover(vertex_list,current_status,solution,0)
+        return solution
 
-        solution_list = []
-
-        for v in solution:
-            if solution[v]:
-                solution_list.append(v)
-
-        return solution_list
 
     def _backtrack_min_vertex_cover(self, vertex_list, current_status, s, k):
         if k == len(s):
@@ -74,7 +121,7 @@ class MyGraph(Graph):
 
         return True
 
-    def _could_be_a_sol(self, current_status, vertex):  # dato lo stato corrente, e dato che non prendo quel vertice
+    def _could_be_a_sol(self, current_status, vertex): # dato lo stato corrente, e dato che non prendo quel vertice
         new_status = current_status.copy()
 
         for edge in self.incident_edges(vertex):
@@ -82,10 +129,5 @@ class MyGraph(Graph):
             if not new_status[edge]:
                 return False
 
-        if self.is_directed():
-            for edge in self.incident_edges(vertex, False):
-                new_status[edge] -= 1
-                if not new_status[edge]:
-                    return False
-
         return new_status
+

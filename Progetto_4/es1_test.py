@@ -1,13 +1,38 @@
-from Progetto_4.Utilities import generateGraph
+from Utilities import generateGraph
 import cProfile
-import pstats
 
-G = generateGraph(10, 20)
+for i in range(50):
 
-vertex_cover = []
-cProfile.run("vertex_cover = G.min_vertex_cover()", "test")
-p = pstats.Stats('test')
-p.files.pop(0)
-p.print_stats(0)
-str = p.get_top_level_stats()
-print(len(vertex_cover))
+    print
+
+    print('\033[1;31m_____________________________i =\033[1;m',i)
+
+    print('\033[1;31m_____________________________mvc\033[1;m')
+    G = generateGraph(50, 20)
+
+    print("Random graph generated")
+
+    vertex_cover = None
+
+    cProfile.run("vertex_cover = G.mvc()")
+
+
+    sum = 0
+    if vertex_cover is not None:
+        for v in vertex_cover:
+            if vertex_cover[v]:
+                sum += 1
+        print(sum)
+
+    print('\033[1;31m_____________________________min_vertex_cover\033[1;m')
+
+    vertex_cover = None
+
+    cProfile.run("vertex_cover = G.min_vertex_cover()")
+
+    sum = 0
+    if vertex_cover is not None:
+        for v in vertex_cover:
+            if vertex_cover[v]:
+                sum += 1
+        print(sum)
