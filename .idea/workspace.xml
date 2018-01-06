@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="7c3365dd-68a7-4a06-b47c-e8294c982361" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Progetto_4/Utilities.py" afterPath="$PROJECT_DIR$/Progetto_4/Utilities.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Progetto_4/es1_min_vertex_cover.py" afterPath="$PROJECT_DIR$/Progetto_4/es1_min_vertex_cover.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Progetto_4/es1_test.py" afterPath="$PROJECT_DIR$/Progetto_4/es1_test.py" />
     </list>
@@ -16,11 +15,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="es1_min_vertex_cover.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="es1_min_vertex_cover.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Progetto_4/es1_min_vertex_cover.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+            <state relative-caret-position="71">
+              <caret line="53" column="38" lean-forward="true" selection-start-line="53" selection-start-column="38" selection-end-line="53" selection-end-column="38" />
               <folding>
                 <element signature="e#0#57#0" expanded="true" />
               </folding>
@@ -50,11 +49,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="es1_test.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="es1_test.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Progetto_4/es1_test.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="435">
-              <caret line="29" column="56" lean-forward="true" selection-start-line="29" selection-start-column="56" selection-end-line="29" selection-end-column="56" />
+            <state relative-caret-position="105">
+              <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
               <folding>
                 <element signature="e#0#46#0" expanded="true" />
               </folding>
@@ -110,6 +109,7 @@
       <find>newDFS</find>
       <find>mvc</find>
       <find>min_vertex_cover</find>
+      <find>_DFS</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -144,8 +144,8 @@
         <option value="$PROJECT_DIR$/Esercizi/es1_ricerca_esaustiva.py" />
         <option value="$PROJECT_DIR$/Progetto_4/es1_greedy_vertex_cover.py" />
         <option value="$PROJECT_DIR$/Progetto_4/Utilities.py" />
-        <option value="$PROJECT_DIR$/Progetto_4/es1_test.py" />
         <option value="$PROJECT_DIR$/Progetto_4/es1_min_vertex_cover.py" />
+        <option value="$PROJECT_DIR$/Progetto_4/es1_test.py" />
       </list>
     </option>
   </component>
@@ -601,7 +601,14 @@
       <option name="project" value="LOCAL" />
       <updated>1515236597037</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="test">
+      <created>1515237599132</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1515237599132</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TodoView">
@@ -621,7 +628,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34952766" sideWeight="0.5076389" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32793522" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32918552" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4764706" sideWeight="0.49513888" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.40823528" sideWeight="0.49513888" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24973147" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32918552" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -993,22 +1000,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Progetto_4/es1_test.py">
+    <entry file="file://$PROJECT_DIR$/Progetto_4/es1_min_vertex_cover.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="29" column="56" lean-forward="true" selection-start-line="29" selection-start-column="56" selection-end-line="29" selection-end-column="56" />
+        <state relative-caret-position="71">
+          <caret line="53" column="38" lean-forward="true" selection-start-line="53" selection-start-column="38" selection-end-line="53" selection-end-column="38" />
           <folding>
-            <element signature="e#0#46#0" expanded="true" />
+            <element signature="e#0#57#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Progetto_4/es1_min_vertex_cover.py">
+    <entry file="file://$PROJECT_DIR$/Progetto_4/es1_test.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+        <state relative-caret-position="105">
+          <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
           <folding>
-            <element signature="e#0#57#0" expanded="true" />
+            <element signature="e#0#46#0" expanded="true" />
           </folding>
         </state>
       </provider>

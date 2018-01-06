@@ -16,12 +16,9 @@ for i in range(50):
     cProfile.run("vertex_cover = G.min_vertex_cover()")
 
 
-    sum = 0
-    if vertex_cover is not None:
-        for v in vertex_cover:
-            if vertex_cover[v]:
-                sum += 1
-        print(sum)
+    print(len(vertex_cover))
+
+    """
 
     print('\033[1;31m_____________________________min_vertex_cover\033[1;m')
 
@@ -29,9 +26,5 @@ for i in range(50):
 
     cProfile.run("vertex_cover = G._min_vertex_cover()")
 
-    sum = 0
-    if vertex_cover is not None:
-        for v in vertex_cover:
-            if vertex_cover[v]:
-                sum += 1
-        print(sum)
+    print(len(vertex_cover))
+    """
