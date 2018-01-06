@@ -1,9 +1,8 @@
-from Utilities import generateGraph
+from Progetto_4.Utilities import generateGraph
 import cProfile
 
 for i in range(50):
 
-    print
 
     print('\033[1;31m_____________________________i =\033[1;m',i)
 
@@ -14,7 +13,7 @@ for i in range(50):
 
     vertex_cover = None
 
-    cProfile.run("vertex_cover = G.mvc()")
+    cProfile.run("vertex_cover = G.min_vertex_cover()")
 
 
     sum = 0
@@ -28,7 +27,7 @@ for i in range(50):
 
     vertex_cover = None
 
-    cProfile.run("vertex_cover = G.min_vertex_cover()")
+    cProfile.run("vertex_cover = G._min_vertex_cover()")
 
     sum = 0
     if vertex_cover is not None:

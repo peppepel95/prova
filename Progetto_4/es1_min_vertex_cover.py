@@ -1,19 +1,20 @@
-from TdP_collections.graphs.graph import Graph
-from TdP_collections.priority_queue.heap_priority_queue import HeapPriorityQueue
+from Progetto_4.TdP_collections.graphs.graph import Graph
+from Progetto_4.TdP_collections.priority_queue.heap_priority_queue import HeapPriorityQueue
 
-def newDFS(g, u, discovered, value):
-
-    for e in g.incident_edges(u):
-        v = e.opposite(u)
-        if discovered[v][0] == 0:
-            discovered[v][0] = value
-            newDFS(g, v, discovered, value)
-    if g.degree(u) == 0:
-        discovered[u][0] = value
 
 class MyGraph(Graph):
 
-    def sconnectGraph(self):
+    def _DFS(self, u, discovered, value):
+
+        for e in self.incident_edges(u):
+            v = e.opposite(u)
+            if discovered[v][0] == 0:
+                discovered[v][0] = value
+                self._DFS(v, discovered, value)
+        if self.degree(u) == 0:
+            discovered[u][0] = value
+
+    def _sconnect_graph(self):
 
         grafi = []
         disc_vert = {}
@@ -23,11 +24,11 @@ class MyGraph(Graph):
             disc_vert[vertex] = [0, None]
 
         for vertex in disc_vert:
-            if disc_vert[vertex][0] == 0: # se è 0 non è stato visitato
-                newDFS(self, vertex, disc_vert, index)
+            if disc_vert[vertex][0] == 0:  # se è 0 non è stato visitato
+                self._DFS(vertex, disc_vert, index)
                 index += 1
 
-        if index == 2: # un unico grafo
+        if index == 2:  # un unico grafo
             return [self, ]
 
         for i in range(index-1):
@@ -49,14 +50,15 @@ class MyGraph(Graph):
                     grafi[i].insert_edge(ver1, ver2)
         return grafi
 
-    def mvc(self):
-        grafi = self.sconnectGraph()
+    def min_vertex_cover(self):  # for disconnected graph
+        grafi = self._sconnect_graph()
         sol = {}
+
         for grafo in grafi:
-            sol.update(grafo.min_vertex_cover())
+            sol.update(grafo._min_vertex_cover())
         return sol
 
-    def min_vertex_cover(self):
+    def _min_vertex_cover(self):  # for connected graph
         current_status = {}
         vertex_list = [None]*self.vertex_count()
         solution = {}
