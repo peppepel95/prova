@@ -1,4 +1,6 @@
 from Esercizi.TdP_collections.graphs.graph import Graph
+import cProfile
+import random
 
 class MyGraph(Graph):
 
@@ -26,19 +28,17 @@ class MyGraph(Graph):
 
     def _backtrack_min_vertex_cover(self, vertex_list, current_status, s, k):
         if k == len(s):
-            if self._is_a_solution(vertex_list):
+            sum = 0
+            for v, val in vertex_list:
+                sum += val
 
-                sum = 0
+            current_sum = 0
+            for v in s:
+                current_sum += s[v]
+
+            if sum < current_sum:
                 for v, val in vertex_list:
-                    sum += val
-
-                current_sum = 0
-                for v in s:
-                    current_sum += s[v]
-
-                if sum < current_sum:
-                    for v, val in vertex_list:
-                        s[v] = val
+                    s[v] = val
         else:
             new_status = self._could_be_a_sol(current_status, vertex_list[k][0])
             if new_status:
@@ -187,9 +187,38 @@ G5.insert_edge(h, g)
 G5.insert_edge(g, f)
 G5.insert_edge(e, g)
 
+def generateGraph(n, m):
+    G = MyGraph()
+    l = []
 
-vertex_cover = G5.min_vertex_cover()
+    for i in range(n):
+        l.append(G.insert_vertex(i))
 
+    possible_edge = []
+    all_edge = 0
+
+    for i in range(n):
+        for j in range(n):
+            if i != j and i > j:
+                possible_edge.append((i,j))
+                all_edge += 1
+
+    for j in range(m):
+        index = random.randrange(0, len(possible_edge))
+        n1, n2 = possible_edge.pop(index)
+        G.insert_edge(l[n1], l[n2])
+
+    return G
+
+G = generateGraph(30, 80)
+
+vertex_cover = None
+
+cProfile.run("vertex_cover = G.min_vertex_cover()")
+
+
+sum = 0
 for v in vertex_cover:
     if vertex_cover[v]:
-        print(v)
+        sum += 1
+print(sum)

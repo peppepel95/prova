@@ -1,5 +1,6 @@
 from Esercizi.TdP_collections.priority_queue.adaptable_heap_priority_queue import AdaptableHeapPriorityQueue
-from Esercizi.TdP_collections.graphs.graph import Graph
+from Progetto_4.Utilities import generateGraph, read_graph_from_file
+import random
 
 
 def emergency_call(g, pos, src, k):
@@ -48,27 +49,23 @@ def emergency_call(g, pos, src, k):
 
 """*******************************************MAIN*******************************************"""
 
-G = Graph()
-pos = {}
 
-a = G.insert_vertex("a")
-b = G.insert_vertex("b")
-c = G.insert_vertex("c")
-d = G.insert_vertex("d")
-e = G.insert_vertex("e")
-f = G.insert_vertex("f")
-g = G.insert_vertex("g")
-G.insert_edge(a, b, 300)
-G.insert_edge(a, c, 1290)
-G.insert_edge(b, c, 800)
-G.insert_edge(c, d, 70)
-G.insert_edge(d, e, 140)
-G.insert_edge(e, f, 900)
-G.insert_edge(c, f, 500)
-G.insert_edge(c, g, 250)
+i = 1
+start = None
+G = read_graph_from_file("./Test_files/city_map.txt")
 
-pos[1] = a
-pos[2] = f
-pos[3] = g
+for j in range(0,100000):
+    i = 1
+    start = None
+    pos = {}
+    for v in G.vertices():
+        r = random.randrange(0,2)
+        if r:
+            pos[i] = v
+            i += 1
+        r1 = random.randrange(1, 100)
+        if r1 > 50 and start is None:
+            start = v
 
-print(emergency_call(G, pos, c, 2))
+    k = int(len(pos)/2)
+    print(emergency_call(G, pos, start, k))
