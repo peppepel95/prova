@@ -3,31 +3,36 @@ from Progetto_4.TdP_collections.priority_queue.heap_priority_queue import HeapPr
 
 
 class MyGraph(Graph):
-
     def min_vertex_cover(self):
+        """
+        calcola un vertex cover di dimensione minima
+        :return: solution_list lista dei vertici del vertex cover
+        """
         current_status = {}
-        vertex_list = [None]*self.vertex_count()
+        vertex_list = [None] * self.vertex_count()
         solution = {}
         pq = HeapPriorityQueue()
 
-        for v in self.vertices():
+        for v in self.vertices():  # O(n*log(n))
             solution[v] = 1
+            pq.add(-self.degree(v), v)  # O(log(n))
 
-            pq.add(-self.degree(v), v)
+        for edge in self.edges():  # O(m)
+            current_status[edge] = 2
 
-            for edge in self.incident_edges(v):
-                if edge in current_status:
-                    current_status[edge] += 1
-                else:
-                    current_status[edge] = 1
-
-        for i in range(len(pq)):
+        for i in range(len(pq)):  # O(n*log(n))
             k, v = pq.remove_min()
             vertex_list[i] = (v, 0)
 
-        self._backtrack_min_vertex_cover(vertex_list,current_status,solution,0)
-        return solution
+        self._backtrack_min_vertex_cover(vertex_list, current_status, solution, 0)
 
+        solution_list = []
+
+        for v in solution:
+            if solution[v]:
+                solution_list.append(v)
+
+        return solution_list
 
     def _backtrack_min_vertex_cover(self, vertex_list, current_status, s, k):
         if k == len(s):
@@ -69,7 +74,7 @@ class MyGraph(Graph):
 
         return True
 
-    def _could_be_a_sol(self, current_status, vertex): # dato lo stato corrente, e dato che non prendo quel vertice
+    def _could_be_a_sol(self, current_status, vertex):  # dato lo stato corrente, e dato che non prendo quel vertice
         new_status = current_status.copy()
 
         for edge in self.incident_edges(vertex):
@@ -77,5 +82,10 @@ class MyGraph(Graph):
             if not new_status[edge]:
                 return False
 
-        return new_status
+        if self.is_directed():
+            for edge in self.incident_edges(vertex, False):
+                new_status[edge] -= 1
+                if not new_status[edge]:
+                    return False
 
+        return new_status
