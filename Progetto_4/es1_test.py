@@ -31,15 +31,14 @@ for i in range(50):
     print(len(vertex_cover))
 """
 
-G = read_graph_from_file("./Test_files/miserabili.txt")
+
+G = read_graph_from_file("./Test_files/zachary_club.txt")
 vertex_cover = []
 cProfile.run("vertex_cover = G.min_vertex_cover()", "test")
 p = pstats.Stats('test')
 p.files.pop(0)
 p.print_stats(0)
 print(len(vertex_cover))
-
-
 
 
 
@@ -92,10 +91,11 @@ for i in range(len(V)):
         G.insert_edge(V[i],V[i + 2])
 
 vertex_cover = []
-cProfile.run("vertex_cover = G.greedy_vertex_cover()", "test")
+cProfile.run("vertex_cover = G.min_vertex_cover()", "test")
 p = pstats.Stats('test')
 p.files.pop(0)
 p.print_stats(0)
+print(len(vertex_cover))
 for v in vertex_cover:
     print(v)
 """

@@ -4,7 +4,10 @@
     <list default="true" id="7c3365dd-68a7-4a06-b47c-e8294c982361" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Progetto_4/test" afterPath="$PROJECT_DIR$/Progetto_4/test" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Progetto_4/Utilities.py" afterPath="$PROJECT_DIR$/Progetto_4/Utilities.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Progetto_4/es1_test.py" afterPath="$PROJECT_DIR$/Progetto_4/es1_test.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Progetto_4/es2.py" afterPath="$PROJECT_DIR$/Progetto_4/es2.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Progetto_4/es3.py" afterPath="$PROJECT_DIR$/Progetto_4/es3.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -15,11 +18,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="es1_min_vertex_cover.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Progetto_4/es1_min_vertex_cover.py">
+      <file leaf-file-name="es1.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Progetto_4/es1.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-86">
-              <caret line="80" column="78" lean-forward="false" selection-start-line="80" selection-start-column="70" selection-end-line="80" selection-end-column="78" />
+            <state relative-caret-position="495">
+              <caret line="33" column="62" lean-forward="true" selection-start-line="33" selection-start-column="62" selection-end-line="33" selection-end-column="62" />
               <folding>
                 <element signature="e#0#57#0" expanded="true" />
               </folding>
@@ -27,12 +30,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="graph.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Progetto_4/TdP_collections/graphs/graph.py">
+      <file leaf-file-name="es2.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Progetto_4/es2.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="162">
-              <caret line="138" column="17" lean-forward="false" selection-start-line="138" selection-start-column="6" selection-end-line="138" selection-end-column="17" />
-              <folding />
+            <state relative-caret-position="362">
+              <caret line="154" column="19" lean-forward="true" selection-start-line="154" selection-start-column="19" selection-end-line="154" selection-end-column="19" />
+              <folding>
+                <element signature="e#0#55#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -40,45 +45,33 @@
       <file leaf-file-name="es3.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Progetto_4/es3.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="183">
-              <caret line="29" column="36" lean-forward="false" selection-start-line="29" selection-start-column="36" selection-end-line="29" selection-end-column="36" />
-              <folding>
-                <element signature="e#0#108#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="0">
+              <caret line="0" column="108" lean-forward="false" selection-start-line="0" selection-start-column="108" selection-end-line="0" selection-end-column="108" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="es1_test.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="es1_test.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Progetto_4/es1_test.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+            <state relative-caret-position="554">
+              <caret line="41" column="0" lean-forward="true" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
               <folding>
-                <element signature="e#0#46#0" expanded="true" />
+                <element signature="e#0#68#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Utilities.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Utilities.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Progetto_4/Utilities.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="21" column="27" lean-forward="false" selection-start-line="21" selection-start-column="27" selection-end-line="21" selection-end-column="27" />
+            <state relative-caret-position="326">
+              <caret line="160" column="16" lean-forward="true" selection-start-line="160" selection-start-column="16" selection-end-line="160" selection-end-column="16" />
               <folding>
-                <element signature="e#0#51#0" expanded="true" />
+                <element signature="e#0#34#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="es1_greedy_vertex_cover.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Progetto_4/es1_greedy_vertex_cover.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="20" column="48" lean-forward="false" selection-start-line="20" selection-start-column="48" selection-end-line="20" selection-end-column="48" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -104,12 +97,12 @@
       <find>remove</find>
       <find>incident</find>
       <find>self</find>
-      <find>incident_ed</find>
       <find>sconnectGraph</find>
       <find>newDFS</find>
       <find>mvc</find>
       <find>min_vertex_cover</find>
       <find>_DFS</find>
+      <find>incident_ed</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -143,9 +136,12 @@
         <option value="$PROJECT_DIR$/Esercizi/es1.py" />
         <option value="$PROJECT_DIR$/Esercizi/es1_ricerca_esaustiva.py" />
         <option value="$PROJECT_DIR$/Progetto_4/es1_greedy_vertex_cover.py" />
-        <option value="$PROJECT_DIR$/Progetto_4/Utilities.py" />
         <option value="$PROJECT_DIR$/Progetto_4/es1_min_vertex_cover.py" />
+        <option value="$PROJECT_DIR$/Progetto_4/prova.py" />
         <option value="$PROJECT_DIR$/Progetto_4/es1_test.py" />
+        <option value="$PROJECT_DIR$/Progetto_4/es3.py" />
+        <option value="$PROJECT_DIR$/Progetto_4/Utilities.py" />
+        <option value="$PROJECT_DIR$/Progetto_4/es2.py" />
       </list>
     </option>
   </component>
@@ -210,7 +206,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.es1_test">
+  <component name="RunManager" selected="Python.es2">
     <configuration name="EditDistance" type="PythonConfigurationType" factoryName="Python">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -245,23 +241,6 @@
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
     </configuration>
-    <configuration name="es1_greedy_vertex_cover" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Progetto_4" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="prova" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Progetto_4/es1_greedy_vertex_cover.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-    </configuration>
     <configuration name="es1_min_vertex_cover" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -274,24 +253,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="prova" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Progetto_4/es1_min_vertex_cover.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-    </configuration>
-    <configuration name="es1_ricerca_esaustiva" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Esercizi" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="prova" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Esercizi/es1_ricerca_esaustiva.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Progetto_4/es1.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -313,21 +275,55 @@
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
     </configuration>
+    <configuration name="es2" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Progetto_4" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="prova" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Progetto_4/es2.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+    </configuration>
+    <configuration name="es3" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Progetto_4" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="prova" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Progetto_4/es3.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+    </configuration>
     <list size="6">
       <item index="0" class="java.lang.String" itemvalue="Python.EditDistance" />
-      <item index="1" class="java.lang.String" itemvalue="Python.es1_ricerca_esaustiva" />
-      <item index="2" class="java.lang.String" itemvalue="Python.es1_min_vertex_cover" />
-      <item index="3" class="java.lang.String" itemvalue="Python.Utilities" />
-      <item index="4" class="java.lang.String" itemvalue="Python.es1_greedy_vertex_cover" />
-      <item index="5" class="java.lang.String" itemvalue="Python.es1_test" />
+      <item index="1" class="java.lang.String" itemvalue="Python.es1_min_vertex_cover" />
+      <item index="2" class="java.lang.String" itemvalue="Python.Utilities" />
+      <item index="3" class="java.lang.String" itemvalue="Python.es1_test" />
+      <item index="4" class="java.lang.String" itemvalue="Python.es3" />
+      <item index="5" class="java.lang.String" itemvalue="Python.es2" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.es1_test" />
-        <item index="1" class="java.lang.String" itemvalue="Python.es1_min_vertex_cover" />
-        <item index="2" class="java.lang.String" itemvalue="Python.es1_greedy_vertex_cover" />
+        <item index="0" class="java.lang.String" itemvalue="Python.es2" />
+        <item index="1" class="java.lang.String" itemvalue="Python.es3" />
+        <item index="2" class="java.lang.String" itemvalue="Python.es1_test" />
         <item index="3" class="java.lang.String" itemvalue="Python.Utilities" />
-        <item index="4" class="java.lang.String" itemvalue="Python.es1_ricerca_esaustiva" />
+        <item index="4" class="java.lang.String" itemvalue="Python.es1_min_vertex_cover" />
       </list>
     </recent_temporary>
   </component>
@@ -636,7 +632,21 @@
       <option name="project" value="LOCAL" />
       <updated>1515249330841</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="final">
+      <created>1515251594251</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1515251594251</updated>
+    </task>
+    <task id="LOCAL-00044" summary="final">
+      <created>1515259233263</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1515259233263</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="TodoView">
@@ -656,7 +666,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34941176" sideWeight="0.5076389" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32793522" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32918552" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.70235294" sideWeight="0.49513888" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.42705882" sideWeight="0.49513888" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24973147" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32918552" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -719,14 +729,11 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="86" />
+      <option name="time" value="99" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/Rar$DIa0.375/queue.py" />
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/Rar$DIa0.753/queue.py" />
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/Rar$DIa0.928/LinkedList.py" />
     <entry file="file://$USER_HOME$/AppData/Local/Temp/Rar$DIa0.371/testLinkedList.py" />
     <entry file="file://$PROJECT_DIR$/Progetto1/prova.py" />
     <entry file="file://$PROJECT_DIR$/Progetto1/verifica.py" />
@@ -933,13 +940,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/random.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="199" column="0" lean-forward="false" selection-start-line="199" selection-start-column="0" selection-end-line="199" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Esercizi/es1_ricerca_esaustiva.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1013">
@@ -984,39 +984,38 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Progetto_4/es3.py">
+    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/random.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="183">
-          <caret line="29" column="36" lean-forward="false" selection-start-line="29" selection-start-column="36" selection-end-line="29" selection-end-column="36" />
+        <state relative-caret-position="93">
+          <caret line="199" column="0" lean-forward="false" selection-start-line="199" selection-start-column="0" selection-end-line="199" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Progetto_4/prova.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="94" column="0" lean-forward="true" selection-start-line="94" selection-start-column="0" selection-end-line="94" selection-end-column="0" />
           <folding>
-            <element signature="e#0#108#0" expanded="true" />
+            <element signature="e#0#57#0" expanded="false" />
+            <element signature="e#3644#3976#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Progetto_4/TdP_collections/graphs/graph.py">
+    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/profile.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="138" column="17" lean-forward="false" selection-start-line="138" selection-start-column="6" selection-end-line="138" selection-end-column="17" />
+        <state relative-caret-position="161">
+          <caret line="52" column="0" lean-forward="false" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/cProfile.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="139">
-          <caret line="99" column="0" lean-forward="false" selection-start-line="99" selection-start-column="0" selection-end-line="99" selection-end-column="0" />
+        <state relative-caret-position="154">
+          <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Progetto_4/Utilities.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="27" lean-forward="false" selection-start-line="21" selection-start-column="27" selection-end-line="21" selection-end-column="27" />
-          <folding>
-            <element signature="e#0#51#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1028,22 +1027,58 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Progetto_4/es1_min_vertex_cover.py">
+    <entry file="file://$PROJECT_DIR$/Progetto_4/TdP_collections/graphs/graph.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-86">
-          <caret line="80" column="78" lean-forward="false" selection-start-line="80" selection-start-column="70" selection-end-line="80" selection-end-column="78" />
+        <state relative-caret-position="555">
+          <caret line="37" column="0" lean-forward="false" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Progetto_4/es1.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="495">
+          <caret line="33" column="62" lean-forward="true" selection-start-line="33" selection-start-column="62" selection-end-line="33" selection-end-column="62" />
           <folding>
             <element signature="e#0#57#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Progetto_4/es2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="362">
+          <caret line="154" column="19" lean-forward="true" selection-start-line="154" selection-start-column="19" selection-end-line="154" selection-end-column="19" />
+          <folding>
+            <element signature="e#0#55#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Progetto_4/es3.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="108" lean-forward="false" selection-start-line="0" selection-start-column="108" selection-end-line="0" selection-end-column="108" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Progetto_4/es1_test.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+        <state relative-caret-position="554">
+          <caret line="41" column="0" lean-forward="true" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
           <folding>
-            <element signature="e#0#46#0" expanded="true" />
+            <element signature="e#0#68#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Progetto_4/Utilities.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="326">
+          <caret line="160" column="16" lean-forward="true" selection-start-line="160" selection-start-column="16" selection-end-line="160" selection-end-column="16" />
+          <folding>
+            <element signature="e#0#34#0" expanded="true" />
           </folding>
         </state>
       </provider>

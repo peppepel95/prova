@@ -1,6 +1,8 @@
 from Esercizi.TdP_collections.graphs.graph import Graph
 from Esercizi.TdP_collections.graphs.dfs import DFS_complete
 from Esercizi.TdP_collections.tree.linked_binary_tree import LinkedBinaryTree
+from Progetto_4.Utilities import generateGraph, read_graph_from_file
+import random
 
 
 class Node:
@@ -144,49 +146,9 @@ def bridge(G):
 """*******************************************MAIN*******************************************"""
 
 
-G1 = Graph()
+G = read_graph_from_file("./Test_files/bridge.txt")
 
-a = G1.insert_vertex("a")
-b = G1.insert_vertex("b")
-c = G1.insert_vertex("c")
-d = G1.insert_vertex("d")
-e = G1.insert_vertex("e")
-f = G1.insert_vertex("f")
-g = G1.insert_vertex("g")
-G1.insert_edge(a, b)
-G1.insert_edge(a, c)
-G1.insert_edge(b, c)
-G1.insert_edge(c, d)
-G1.insert_edge(d, e)
-G1.insert_edge(e, f)
-G1.insert_edge(c, f)
-G1.insert_edge(c, g)
-
-G2 = Graph()
-
-a = G2.insert_vertex("a")
-b = G2.insert_vertex("b")
-c = G2.insert_vertex("c")
-d = G2.insert_vertex("d")
-e = G2.insert_vertex("e")
-f = G2.insert_vertex("f")
-g = G2.insert_vertex("g")
-h = G2.insert_vertex("h")
-i = G2.insert_vertex("i")
-G2.insert_edge(a, b)
-G2.insert_edge(b, c)
-G2.insert_edge(a, c)
-G2.insert_edge(c, d)
-G2.insert_edge(d, e)
-G2.insert_edge(e, f)
-G2.insert_edge(f, g)
-G2.insert_edge(g, d)
-G2.insert_edge(c, h)
-G2.insert_edge(b, h)
-G2.insert_edge(h, i)
-
-
-bridgeEdges = bridge(G2)
+bridgeEdges = bridge(G)
 
 if bridgeEdges is not None:
     for edge in bridgeEdges:

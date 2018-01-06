@@ -140,7 +140,7 @@ def read_graph_from_file (filename):
         if len(tuple) == 3:
             first = tuple[0]
             second = tuple[1]
-            cost = tuple[2]
+            cost = int(tuple[2])
         else:
             first = tuple[0]
             second = tuple[1]
@@ -158,6 +158,7 @@ def read_graph_from_file (filename):
         try:
             G.insert_edge(u,v,cost)
         except ValueError:
-            print("Esiste già un arco che ha per estremi",u,"e",v)
+            pass
+            #print("Esiste già un arco che ha per estremi",u,"e",v)
     file.close()
     return G
