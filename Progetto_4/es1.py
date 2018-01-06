@@ -137,7 +137,7 @@ class MyGraph(Graph):
                 return False
 
         if self.is_directed():
-            for edge in self.incident_edges(vertex, False):
+            for edge in self.incident_edges(vertex, False):  # nel caso di grafo diretto
                 new_status[edge] -= 1
                 if not new_status[edge]:
                     return False

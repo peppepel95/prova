@@ -1,4 +1,4 @@
-from Progetto_4.es1_min_vertex_cover import MyGraph
+from Progetto_4.es1 import MyGraph
 import random
 
 def knownGraphs(n):
@@ -124,4 +124,40 @@ def generateGraph(n, m):
         n1, n2 = possible_edge.pop(index)
         G.insert_edge(l[n1], l[n2])
 
+    return G
+
+def read_graph_from_file (filename):
+    G = MyGraph()
+    file = open(filename,"r")
+    vertices = {}
+    for line in file:
+        if line[0] == "#" or line[0] == '%':
+            continue
+        line = line.replace("\n","")
+        tuple = line.split(" ")
+        if len(tuple) < 2:
+            raise FileNotFoundError("File in formato sconosciuto")
+        if len(tuple) == 3:
+            first = tuple[0]
+            second = tuple[1]
+            cost = tuple[2]
+        else:
+            first = tuple[0]
+            second = tuple[1]
+            cost = None
+        if vertices.__contains__(first):
+            u = vertices[first]
+        else:
+            vertices[first] = G.insert_vertex(first)
+            u = vertices[first]
+        if vertices.__contains__(second):
+            v = vertices[second]
+        else:
+            vertices[second] = G.insert_vertex(second)
+            v = vertices[second]
+        try:
+            G.insert_edge(u,v,cost)
+        except ValueError:
+            print("Esiste già un arco che ha per estremi",u,"e",v)
+    file.close()
     return G
