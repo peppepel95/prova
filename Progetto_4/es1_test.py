@@ -8,7 +8,7 @@ for i in range(50):
     print('\033[1;31m_____________________________i =\033[1;m',i)
 
     print('\033[1;31m_____________________________min_vertex_cover\033[1;m')
-    G = generateGraph(50, 20)
+    G = generateGraph(50, 250 + i*15)
 
     print("Random graph generated")
 
@@ -17,7 +17,6 @@ for i in range(50):
     p = pstats.Stats('test')
     p.files.pop(0)
     p.print_stats(0)
-    str = p.get_top_level_stats()
     print(len(vertex_cover))
 
     """
