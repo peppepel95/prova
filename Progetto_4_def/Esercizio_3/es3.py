@@ -52,9 +52,9 @@ def emergency_call(g, pos, src, k):
 
 i = 1
 start = None
-G = read_graph_from_file("./Test_files/city_map.txt")
+G = read_graph_from_file("../Test_files/city_map.txt")
 
-for j in range(0,100000):
+for j in range(0,3000):
     i = 1
     start = None
     pos = {}

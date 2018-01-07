@@ -5,7 +5,7 @@ import pstats
 
 
 
-for i in range(50):
+for i in range(0):
 
     m = 30 + i*30
     n = 10 + 2*i
@@ -33,7 +33,7 @@ for i in range(50):
     print(len(vertex_cover))
 
 
-G = read_graph_from_file("./Test_files/zachary_club.txt")
+G = read_graph_from_file("../Test_files/zachary_club.txt")
 vertex_cover = []
 cProfile.run("vertex_cover = G.min_vertex_cover()", "test")
 p = pstats.Stats('test')

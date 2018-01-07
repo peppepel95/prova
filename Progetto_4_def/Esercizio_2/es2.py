@@ -146,7 +146,7 @@ def bridge(G):
 """*******************************************MAIN*******************************************"""
 
 
-G = read_graph_from_file("./Test_files/bridge.txt")
+G = read_graph_from_file("../Test_files/bridge.txt")
 
 bridgeEdges = bridge(G)
 
