@@ -1,4 +1,4 @@
-from Progetto_4.es1 import MyGraph
+from Progetto_4.Esercizio_1.es1 import MyGraph
 import random
 
 def knownGraphs(n):

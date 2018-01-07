@@ -1,4 +1,4 @@
-from Progetto_4.TdP_collections.graphs.graph import Graph
+from Progetto_4_old.TdP_collections.graphs.graph import Graph
 
 
 class MyGraph(Graph):
