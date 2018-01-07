@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7c3365dd-68a7-4a06-b47c-e8294c982361" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Progetto_4/test" afterPath="$PROJECT_DIR$/Progetto_4/test" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Progetto_4/Utilities.py" afterPath="$PROJECT_DIR$/Progetto_4/Utilities.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Progetto_4/es1_test.py" afterPath="$PROJECT_DIR$/Progetto_4/es1_test.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Progetto_4/prova.py" afterPath="$PROJECT_DIR$/Progetto_4/prova.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -31,8 +30,8 @@
       <file leaf-file-name="prova.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Progetto_4/prova.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-142">
-              <caret line="96" column="13" lean-forward="true" selection-start-line="96" selection-start-column="13" selection-end-line="96" selection-end-column="13" />
+            <state relative-caret-position="250">
+              <caret line="79" column="30" lean-forward="true" selection-start-line="79" selection-start-column="30" selection-end-line="79" selection-end-column="30" />
               <folding />
             </state>
           </provider>
@@ -41,8 +40,8 @@
       <file leaf-file-name="es1_test.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Progetto_4/es1_test.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="17" column="63" lean-forward="true" selection-start-line="17" selection-start-column="63" selection-end-line="17" selection-end-column="63" />
+            <state relative-caret-position="571">
+              <caret line="43" column="0" lean-forward="true" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
               <folding>
                 <element signature="e#0#68#0" expanded="true" />
               </folding>
@@ -123,9 +122,9 @@
         <option value="$PROJECT_DIR$/Progetto_4/es1_min_vertex_cover.py" />
         <option value="$PROJECT_DIR$/Progetto_4/es3.py" />
         <option value="$PROJECT_DIR$/Progetto_4/es2.py" />
-        <option value="$PROJECT_DIR$/Progetto_4/es1_test.py" />
         <option value="$PROJECT_DIR$/Progetto_4/Utilities.py" />
         <option value="$PROJECT_DIR$/Progetto_4/prova.py" />
+        <option value="$PROJECT_DIR$/Progetto_4/es1_test.py" />
       </list>
     </option>
   </component>
@@ -632,7 +631,14 @@
       <option name="project" value="LOCAL" />
       <updated>1515262897003</updated>
     </task>
-    <option name="localTasksCounter" value="46" />
+    <task id="LOCAL-00046" summary="final">
+      <created>1515318562285</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1515318562285</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1056,8 +1062,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Progetto_4/es1_test.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="63" lean-forward="true" selection-start-line="17" selection-start-column="63" selection-end-line="17" selection-end-column="63" />
+        <state relative-caret-position="571">
+          <caret line="43" column="0" lean-forward="true" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
           <folding>
             <element signature="e#0#68#0" expanded="true" />
           </folding>
@@ -1066,8 +1072,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Progetto_4/prova.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-142">
-          <caret line="96" column="13" lean-forward="true" selection-start-line="96" selection-start-column="13" selection-end-line="96" selection-end-column="13" />
+        <state relative-caret-position="250">
+          <caret line="79" column="30" lean-forward="true" selection-start-line="79" selection-start-column="30" selection-end-line="79" selection-end-column="30" />
           <folding />
         </state>
       </provider>

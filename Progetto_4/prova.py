@@ -79,11 +79,11 @@ class MyGraph(Graph):
             k, v = pq.remove_min()
             vertex_list[i] = v
 
-        lista = []
-        lista.append(solution)
-        self._backtrack_min_vertex_cover(vertex_list, current_status, lista, current_solution, 0)
+        sol = []
+        sol.append(solution)
+        self._backtrack_min_vertex_cover(vertex_list, current_status, sol, current_solution, 0)
 
-        return lista[0]
+        return sol[0]
 
     def _backtrack_min_vertex_cover(self, vertex_list, current_status, s, current_solution, k):
         if k == len(vertex_list):

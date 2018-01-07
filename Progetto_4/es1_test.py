@@ -32,7 +32,7 @@ for i in range(50):
 """
 
 
-G = read_graph_from_file("./Test_files/zachary_club.txt")
+G = read_graph_from_file("./Test_files/miserabili.txt")
 vertex_cover = []
 cProfile.run("vertex_cover = G.min_vertex_cover()", "test")
 p = pstats.Stats('test')
