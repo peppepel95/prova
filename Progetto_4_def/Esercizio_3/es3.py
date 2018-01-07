@@ -1,5 +1,5 @@
 from Esercizi.TdP_collections.priority_queue.adaptable_heap_priority_queue import AdaptableHeapPriorityQueue
-from Progetto_4.Utilities import generateGraph, read_graph_from_file
+from Progetto_4.Utilities import read_graph_from_file
 import random
 
 

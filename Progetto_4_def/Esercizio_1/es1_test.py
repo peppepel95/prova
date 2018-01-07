@@ -1,11 +1,10 @@
 from Progetto_4.Utilities import generateGraph, read_graph_from_file
-from Progetto_4.es1 import MyGraph
 import cProfile
 import pstats
 
 
 
-for i in range(0):
+for i in range(50):
 
     m = 30 + i*30
     n = 10 + 2*i

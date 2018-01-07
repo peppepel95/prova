@@ -1,7 +1,6 @@
-from Esercizi.TdP_collections.graphs.graph import Graph
 from Esercizi.TdP_collections.graphs.dfs import DFS_complete
 from Esercizi.TdP_collections.tree.linked_binary_tree import LinkedBinaryTree
-from Progetto_4.Utilities import generateGraph, read_graph_from_file
+from Progetto_4.Utilities import read_graph_from_file
 import random
 
 
