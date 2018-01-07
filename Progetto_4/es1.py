@@ -101,11 +101,7 @@ class MyGraph(Graph):
             if len(current_solution) + 1 < len(s[0]):
                 next2 = current_solution.copy()
                 next2.append(vertex_list[k])
-
-                if self._is_a_solution(next2):
-                    s[0] = current_solution
-                else:
-                    self._backtrack_min_vertex_cover(vertex_list, current_status, s, next2, k + 1)
+                self._backtrack_min_vertex_cover(vertex_list, current_status, s, next2, k + 1)
 
     def _is_a_solution(self, vertex_list):
         status = {}
