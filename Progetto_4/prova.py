@@ -64,12 +64,12 @@ class MyGraph(Graph):
         """
         current_status = {}
         vertex_list = [None] * self.vertex_count()
-        solution = {}
+        solution = []
         pq = HeapPriorityQueue()
         current_solution = []
 
         for v in self.vertices():  # O(n*log(n))
-            solution[v] = 1
+            solution.append(v)
             pq.add(-self.degree(v), v)  # O(log(n))
 
         for edge in self.edges():  # O(m)
@@ -79,25 +79,21 @@ class MyGraph(Graph):
             k, v = pq.remove_min()
             vertex_list[i] = v
 
-        self._backtrack_min_vertex_cover(vertex_list, current_status, solution, current_solution, 0)
+        lista = []
+        lista.append(solution)
+        self._backtrack_min_vertex_cover(vertex_list, current_status, lista, current_solution, 0)
 
-        solution_list = []
-
-        for v in solution:
-            if solution[v]:
-                solution_list.append(v)
-
-        return solution_list
+        return lista[0]
 
     def _backtrack_min_vertex_cover(self, vertex_list, current_status, s, current_solution, k):
         if k == len(vertex_list):
+
             sum = len(current_solution)
 
-            current_sum = len(s)
+            current_sum = len(s[0])
 
             if sum < current_sum:
-                for v, val in vertex_list:
-                    s[v] = val
+                s[0] = current_solution
         else:
             new_status = self._could_be_a_sol(current_status, vertex_list[k])
             if new_status:
