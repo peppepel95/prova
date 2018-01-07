@@ -64,12 +64,11 @@ class MyGraph(Graph):
         """
         current_status = {}
         vertex_list = [None] * self.vertex_count()
-        solution = []
+        solution = {}
         pq = HeapPriorityQueue()
-        current_solution = []
-        sol = []
+
         for v in self.vertices():  # O(n*log(n))
-            solution.append(v)
+            solution[v] = 1
             pq.add(-self.degree(v), v)  # O(log(n))
 
         for edge in self.edges():  # O(m)
@@ -77,44 +76,51 @@ class MyGraph(Graph):
 
         for i in range(len(pq)):  # O(n*log(n))
             k, v = pq.remove_min()
-            vertex_list[i] = v
+            vertex_list[i] = (v, 0)
 
-        sol.append(solution)
-        self._backtrack_min_vertex_cover(vertex_list, current_status, sol, current_solution, 0)
+        self._backtrack_min_vertex_cover(vertex_list, current_status, solution, 0)
 
-        return sol[0]
+        solution_list = []
 
-    def _backtrack_min_vertex_cover(self, vertex_list, current_status, s, current_solution, k):
-        if k == len(vertex_list):
+        for v in solution:
+            if solution[v]:
+                solution_list.append(v)
 
-            sum = len(current_solution)
+        return solution_list
 
-            current_sum = len(s[0])
+    def _backtrack_min_vertex_cover(self, vertex_list, current_status, s, k):
+        if k == len(s):
+            sum = 0
+            for v, val in vertex_list:
+                sum += val
+
+            current_sum = 0
+            for v in s:
+                current_sum += s[v]
 
             if sum < current_sum:
-                s[0] = current_solution
+                for v, val in vertex_list:
+                    s[v] = val
         else:
-            new_status = self._could_be_a_sol(current_status, vertex_list[k])
+            new_status = self._could_be_a_sol(current_status, vertex_list[k][0])
             if new_status:
-                self._backtrack_min_vertex_cover(vertex_list, new_status, s, current_solution, k + 1)
+                next1 = vertex_list.copy()
+                next1[k] = (next1[k][0], 0)
+                self._backtrack_min_vertex_cover(next1, new_status, s, k + 1)
 
-            if len(current_solution) + 1 < len(s[0]):
-                next2 = current_solution.copy()
-                next2.append(vertex_list[k])
-
-                if self._is_a_solution(next2):
-                    s[0] = current_solution
-                else:
-                    self._backtrack_min_vertex_cover(vertex_list, current_status, s, next2, k + 1)
+            next2 = vertex_list.copy()
+            next2[k] = (next2[k][0], 1)
+            self._backtrack_min_vertex_cover(next2, current_status, s, k + 1)
 
     def _is_a_solution(self, vertex_list):
         status = {}
         for edge in self.edges():
             status[edge] = 0
 
-        for v in vertex_list:
-            for edge in self.incident_edges(v):
-                status[edge] += 1
+        for v, val in vertex_list:
+            if val:
+                for edge in self.incident_edges(v):
+                    status[edge] += 1
 
         for edge in status:
             if not status[edge]:
