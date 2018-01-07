@@ -1,5 +1,4 @@
 from Progetto_4.Utilities import generateGraph, read_graph_from_file
-from Progetto_4.es1 import MyGraph
 import cProfile
 import pstats
 
@@ -33,7 +32,7 @@ for i in range(50):
     print(len(vertex_cover))
 
 
-G = read_graph_from_file("./Test_files/zachary_club.txt")
+G = read_graph_from_file("../Test_files/zachary_club.txt")
 vertex_cover = []
 cProfile.run("vertex_cover = G.min_vertex_cover()", "test")
 p = pstats.Stats('test')

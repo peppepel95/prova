@@ -67,7 +67,7 @@ class MyGraph(Graph):
         solution = []
         pq = HeapPriorityQueue()
         current_solution = []
-
+        sol = []
         for v in self.vertices():  # O(n*log(n))
             solution.append(v)
             pq.add(-self.degree(v), v)  # O(log(n))
@@ -79,7 +79,6 @@ class MyGraph(Graph):
             k, v = pq.remove_min()
             vertex_list[i] = v
 
-        sol = []
         sol.append(solution)
         self._backtrack_min_vertex_cover(vertex_list, current_status, sol, current_solution, 0)
 
@@ -99,18 +98,25 @@ class MyGraph(Graph):
             if new_status:
                 self._backtrack_min_vertex_cover(vertex_list, new_status, s, current_solution, k + 1)
 
-            next2 = current_solution.copy()
-            next2.append(vertex_list[k])
-            self._backtrack_min_vertex_cover(vertex_list, current_status, s, next2, k + 1)
+            if len(current_solution) + 1 < len(s[0]):
+                next2 = current_solution.copy()
+                next2.append(vertex_list[k])
+
+                if self._is_a_solution(next2):
+                    s[0] = current_solution
+                else:
+                    self._backtrack_min_vertex_cover(vertex_list, current_status, s, next2, k + 1)
 
     def _is_a_solution(self, vertex_list):
         status = {}
         for edge in self.edges():
             status[edge] = 0
 
-        for v, val in vertex_list:
-            if val:
-                for edge in self.incident_edges(v):
+        for v in vertex_list:
+            for edge in self.incident_edges(v):
+                status[edge] += 1
+            if self.is_directed():
+                for edge in self.incident_edges(v, False):  # nel caso di grafo diretto
                     status[edge] += 1
 
         for edge in status:

@@ -1,0 +1,27 @@
+# grafo non diretto e non pesato
+# 25 archi, 16 vertici
+A B
+A E
+A F
+B C
+B F
+C D
+C G
+D G
+D H
+E F
+E I
+F I
+G J
+G K
+G L
+H L
+I J
+G I
+N O
+J K
+K N
+O P
+M N
+N Q
+P Q

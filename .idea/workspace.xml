@@ -2,9 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7c3365dd-68a7-4a06-b47c-e8294c982361" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Progetto_4/test" afterPath="$PROJECT_DIR$/Progetto_4/test" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Progetto_4/es1.py" afterPath="$PROJECT_DIR$/Progetto_4/es1.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Progetto_4/es1_test.py" afterPath="$PROJECT_DIR$/Progetto_4/es1_test.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Progetto_4/prova.py" afterPath="$PROJECT_DIR$/Progetto_4/prova.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -15,11 +16,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="es1.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Progetto_4/es1.py">
+      <file leaf-file-name="es1_old.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Progetto_4/es1_old.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="495">
-              <caret line="33" column="62" lean-forward="true" selection-start-line="33" selection-start-column="62" selection-end-line="33" selection-end-column="62" />
+            <state relative-caret-position="-273">
+              <caret line="33" column="62" lean-forward="false" selection-start-line="33" selection-start-column="62" selection-end-line="33" selection-end-column="62" />
               <folding>
                 <element signature="e#0#57#0" expanded="true" />
               </folding>
@@ -27,12 +28,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="prova.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Progetto_4/prova.py">
+      <file leaf-file-name="es1.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Progetto_4/es1.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="250">
-              <caret line="79" column="30" lean-forward="true" selection-start-line="79" selection-start-column="30" selection-end-line="79" selection-end-column="30" />
-              <folding />
+            <state relative-caret-position="1545">
+              <caret line="103" column="16" lean-forward="false" selection-start-line="103" selection-start-column="16" selection-end-line="103" selection-end-column="16" />
+              <folding>
+                <element signature="e#0#57#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -40,8 +43,8 @@
       <file leaf-file-name="es1_test.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Progetto_4/es1_test.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="571">
-              <caret line="43" column="0" lean-forward="true" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
+            <state relative-caret-position="-10">
+              <caret line="16" column="35" lean-forward="true" selection-start-line="16" selection-start-column="35" selection-end-line="16" selection-end-column="35" />
               <folding>
                 <element signature="e#0#68#0" expanded="true" />
               </folding>
@@ -52,9 +55,11 @@
       <file leaf-file-name="Utilities.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Progetto_4/Utilities.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="21" lean-forward="false" selection-start-line="0" selection-start-column="21" selection-end-line="0" selection-end-column="21" />
-              <folding />
+            <state relative-caret-position="90">
+              <caret line="6" column="16" lean-forward="true" selection-start-line="6" selection-start-column="16" selection-end-line="6" selection-end-column="16" />
+              <folding>
+                <element signature="e#0#34#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -122,8 +127,9 @@
         <option value="$PROJECT_DIR$/Progetto_4/es1_min_vertex_cover.py" />
         <option value="$PROJECT_DIR$/Progetto_4/es3.py" />
         <option value="$PROJECT_DIR$/Progetto_4/es2.py" />
-        <option value="$PROJECT_DIR$/Progetto_4/Utilities.py" />
         <option value="$PROJECT_DIR$/Progetto_4/prova.py" />
+        <option value="$PROJECT_DIR$/Progetto_4/es1.py" />
+        <option value="$PROJECT_DIR$/Progetto_4/Utilities.py" />
         <option value="$PROJECT_DIR$/Progetto_4/es1_test.py" />
       </list>
     </option>
@@ -155,6 +161,11 @@
             <path>
               <item name="prova" type="b2602c69:ProjectViewProjectNode" />
               <item name="prova" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="prova" type="b2602c69:ProjectViewProjectNode" />
+              <item name="prova" type="462c0819:PsiDirectoryNode" />
+              <item name="Progetto_4" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -219,7 +230,7 @@
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
     </configuration>
-    <configuration name="es1_min_vertex_cover" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="es1" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -289,19 +300,19 @@
     </configuration>
     <list size="6">
       <item index="0" class="java.lang.String" itemvalue="Python.EditDistance" />
-      <item index="1" class="java.lang.String" itemvalue="Python.es1_min_vertex_cover" />
-      <item index="2" class="java.lang.String" itemvalue="Python.Utilities" />
-      <item index="3" class="java.lang.String" itemvalue="Python.es1_test" />
-      <item index="4" class="java.lang.String" itemvalue="Python.es3" />
-      <item index="5" class="java.lang.String" itemvalue="Python.es2" />
+      <item index="1" class="java.lang.String" itemvalue="Python.Utilities" />
+      <item index="2" class="java.lang.String" itemvalue="Python.es1_test" />
+      <item index="3" class="java.lang.String" itemvalue="Python.es3" />
+      <item index="4" class="java.lang.String" itemvalue="Python.es2" />
+      <item index="5" class="java.lang.String" itemvalue="Python.es1" />
     </list>
     <recent_temporary>
       <list size="5">
         <item index="0" class="java.lang.String" itemvalue="Python.es1_test" />
-        <item index="1" class="java.lang.String" itemvalue="Python.es2" />
-        <item index="2" class="java.lang.String" itemvalue="Python.es3" />
-        <item index="3" class="java.lang.String" itemvalue="Python.Utilities" />
-        <item index="4" class="java.lang.String" itemvalue="Python.es1_min_vertex_cover" />
+        <item index="1" class="java.lang.String" itemvalue="Python.es1" />
+        <item index="2" class="java.lang.String" itemvalue="Python.es2" />
+        <item index="3" class="java.lang.String" itemvalue="Python.es3" />
+        <item index="4" class="java.lang.String" itemvalue="Python.Utilities" />
       </list>
     </recent_temporary>
   </component>
@@ -638,7 +649,28 @@
       <option name="project" value="LOCAL" />
       <updated>1515318562285</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="final">
+      <created>1515318661367</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1515318661367</updated>
+    </task>
+    <task id="LOCAL-00048" summary="final">
+      <created>1515322481353</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1515322481353</updated>
+    </task>
+    <task id="LOCAL-00049" summary="final">
+      <created>1515322544468</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1515322544468</updated>
+    </task>
+    <option name="localTasksCounter" value="50" />
     <servers />
   </component>
   <component name="TodoView">
@@ -658,7 +690,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34941176" sideWeight="0.5076389" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32793522" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31922612" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3675937" sideWeight="0.49513888" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.66142684" sideWeight="0.49513888" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24973147" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33736396" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -1000,14 +1032,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Progetto_4/TdP_collections/graphs/graph.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="555">
-          <caret line="37" column="0" lean-forward="false" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Progetto_4/es2.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="362">
@@ -1023,16 +1047,6 @@
         <state relative-caret-position="0">
           <caret line="0" column="108" lean-forward="false" selection-start-line="0" selection-start-column="108" selection-end-line="0" selection-end-column="108" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Progetto_4/es1.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="33" column="62" lean-forward="true" selection-start-line="33" selection-start-column="62" selection-end-line="33" selection-end-column="62" />
-          <folding>
-            <element signature="e#0#57#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1052,29 +1066,51 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Progetto_4/es1_old.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-273">
+          <caret line="33" column="62" lean-forward="false" selection-start-line="33" selection-start-column="62" selection-end-line="33" selection-end-column="62" />
+          <folding>
+            <element signature="e#0#57#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Progetto_4/TdP_collections/graphs/graph.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1800">
+          <caret line="120" column="0" lean-forward="false" selection-start-line="120" selection-start-column="0" selection-end-line="120" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Progetto_4/Utilities.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="21" lean-forward="false" selection-start-line="0" selection-start-column="21" selection-end-line="0" selection-end-column="21" />
-          <folding />
+        <state relative-caret-position="90">
+          <caret line="6" column="16" lean-forward="true" selection-start-line="6" selection-start-column="16" selection-end-line="6" selection-end-column="16" />
+          <folding>
+            <element signature="e#0#34#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Progetto_4/es1_test.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="571">
-          <caret line="43" column="0" lean-forward="true" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
+        <state relative-caret-position="-10">
+          <caret line="16" column="35" lean-forward="true" selection-start-line="16" selection-start-column="35" selection-end-line="16" selection-end-column="35" />
           <folding>
             <element signature="e#0#68#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Progetto_4/prova.py">
+    <entry file="file://$PROJECT_DIR$/Progetto_4/es1.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="79" column="30" lean-forward="true" selection-start-line="79" selection-start-column="30" selection-end-line="79" selection-end-column="30" />
-          <folding />
+        <state relative-caret-position="1545">
+          <caret line="103" column="16" lean-forward="false" selection-start-line="103" selection-start-column="16" selection-end-line="103" selection-end-column="16" />
+          <folding>
+            <element signature="e#0#57#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
