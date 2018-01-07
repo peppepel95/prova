@@ -101,7 +101,11 @@ class MyGraph(Graph):
             if len(current_solution) + 1 < len(s[0]):
                 next2 = current_solution.copy()
                 next2.append(vertex_list[k])
-                self._backtrack_min_vertex_cover(vertex_list, current_status, s, next2, k + 1)
+
+                if self._is_a_solution(next2):
+                    s[0] = current_solution
+                else:
+                    self._backtrack_min_vertex_cover(vertex_list, current_status, s, next2, k + 1)
 
     def _is_a_solution(self, vertex_list):
         status = {}
@@ -111,6 +115,9 @@ class MyGraph(Graph):
         for v in vertex_list:
             for edge in self.incident_edges(v):
                 status[edge] += 1
+            if self.is_directed():
+                for edge in self.incident_edges(v, False):  # nel caso di grafo diretto
+                    status[edge] += 1
 
         for edge in status:
             if not status[edge]:
