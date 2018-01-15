@@ -1,8 +1,9 @@
 from Esercizi.TdP_collections.graphs.graph import Graph
 
-def BellmanFord (G, s):
-    d = {} #distance
-    p = {} #predecessor
+
+def BellmanFord(G, s):
+    d = {}  # distance
+    p = {}  # predecessor
 
     # Passo 1: Inizializza
     for v in G.vertices():
@@ -12,10 +13,11 @@ def BellmanFord (G, s):
             d[v] = float('inf')
         p[v] = None
 
-    n = len(G)
+    #n = len(G)
+    n = G.vertex_count()
 
     # Passo 2: Processa gli archi ripetutamente
-    for i in range(1,n):
+    for i in range(1, n):
         for uv in G.edges():
             u, v = uv.endpoints()
             r = d[u] + uv.element()
@@ -27,12 +29,12 @@ def BellmanFord (G, s):
     for uv in G.edges():
         u, v = uv.endpoints()
         if d[v] > d[u] + uv.element():
-            raise TypeError ("Il grafo contiene un ciclo di peso negativo")
+            raise TypeError("Il grafo contiene un ciclo di peso negativo")
 
     return d, p
 
-def printShortestPath (d, p, i, j):
 
+def printShortestPath(d, p, i, j):
     stack = []
     curr_vertex = j
 
