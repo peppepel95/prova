@@ -1,4 +1,5 @@
 from queue import PriorityQueue
+
 """"
 0/1 Knapsak: problema dello zaino
 definiamo:
@@ -7,46 +8,50 @@ p = Vettore che contiene i pesi degli elementi xi
 v = Vettore che contiene i valori degli elementi xi
 """""
 
-def Knapsak_0_1 (p, v, P):
+
+def Knapsak_0_1(p, v, P):
     if len(v) != len(p):
         raise ValueError("input errato")
     n_items = len(v)
 
-    M = [[0] * (P+1) for k in range(n_items)]                           # matrice con P+1 colonne e n_items righe
-    C = [[False] * (P+1) for k in range(n_items)]
+    M = [[0] * (P + 1) for k in range(n_items)]  # matrice con P+1 colonne e n_items righe
+    C = [[False] * (P + 1) for k in range(n_items)]
 
-    for i in range(0,n_items):                                          # ad ogni passo calcoliamo la soluzione M[i][peso]
-                                                                        # ovvero il problema dello zaino considernado solo "i" elementi
-        for peso in range(1,P+1):                                       # e uno zaino con peso pari a "peso"
+    for i in range(0, n_items):  # ad ogni passo calcoliamo la soluzione M[i][peso]
+        # ovvero il problema dello zaino considernado solo "i" elementi
+        for peso in range(1, P + 1):  # e uno zaino con peso pari a "peso"
 
             if peso < p[i]:
-                M[i][peso] = M[i-1][peso]                               # se l'elemento è troppo pesante non possiamo metterlo
+                M[i][peso] = M[i - 1][peso]  # se l'elemento è troppo pesante non possiamo metterlo
             else:
-                if M[i-1][peso] > (M[i-1][peso - p[i]] + v[i]):         # entra, ma se non conviene metterlo non lo mettiamo
-                    M[i][peso] = M[i-1][peso]
-                else:                                                   # entra e conviene metterlo
+                if M[i - 1][peso] > (
+                    M[i - 1][peso - p[i]] + v[i]):  # entra, ma se non conviene metterlo non lo mettiamo
+                    M[i][peso] = M[i - 1][peso]
+                else:  # entra e conviene metterlo
                     M[i][peso] = M[i - 1][peso - p[i]] + v[i]
                     C[i][peso] = True
 
     M_temp = []
     C_temp = []
-    for i in range(n_items-1,0,-1):
+    for i in range(n_items - 1, 0, -1):
         M_temp.append(M[i])
         C_temp.append(C[i])
     return M_temp, C_temp
+
 
 def getItems(p, C):
     n_items = len(p)
     k = 0
     b = len(C[0]) - 1
     item = []
-    while k < (n_items - 1) and b > 0: # 0 -> 8
+    while k < (n_items - 1) and b > 0:  # 0 -> 8
         if C[k][b] == True:
             item.append(n_items - k)
             b -= p[n_items - k - 1]
         k += 1
 
     return item
+
 
 def printMatriceK01(M):
     for i in range(len(M)):
@@ -58,6 +63,7 @@ def printMatriceK01(M):
                 print("{:3} {}".format(M[i][j], ","), end="")
         print("]\n")
     print()
+
 
 def printKnapsakResult(p, v, tup):
     M = tup[0]
@@ -72,37 +78,32 @@ def printKnapsakResult(p, v, tup):
         print("{:7} {:7} {:7}".format("item " + str(item), "Cost " + str(v[item - 1]), "Volume " + str(p[item - 1])))
 
 
-def Knapsak_unb (p, v, P):
+def Knapsak_unb(p, v, P):
     if len(v) != len(p):
         raise ValueError("input errato")
     n_items = len(v)
 
-    pq = PriorityQueue()
-    item = []
-    for i in range(n_items):
-        pq.put((p[i],v[i]))
-    for i in range(n_items):
-        item.append(pq.get())
-
     M = []
     A = []
-    for i in range(P+1):
+    for i in range(P + 1):
         M.append(0)
 
-    for peso in range(1,P+1):
-        i = 0
-        while i != len(item) and item[i][0] <= peso:
-            i += 1
-
-        l = PriorityQueue()
-        for k in range(0, i):
-            key = M[peso - item[k][0]] + item[k][1]
-            l.put((-key, k))
+    for peso in range(1, P + 1):
+        V = {}
+        for k in range(0, n_items):
+            if peso - p[k] >= 0:
+                val = M[peso - p[k]] + v[k]
+                V[k] = val
         if i != 0:
-            t = l.get()
-            M[peso] = - t[0]
-            if t[1] != 0:
-                A.append(t[1])
+            max = None
+            current_item = None
+            for k in V:
+                if max is None or V[k] > max:
+                    max = V[k]
+                    current_item = k
+
+            M[peso] = max
+            A.append(current_item)
 
     return M, A
 
@@ -113,11 +114,11 @@ p = [3, 5, 7, 4, 3, 9, 2, 11, 5]
 v = [2, 3, 3, 4, 4, 5, 7, 8, 8]
 
 p1 = [1, 3, 6]
-v1 = [1, 6, 7]
+v1 = [2, 6, 7]
 
 printKnapsakResult(p, v, Knapsak_0_1(p, v, 15))
 M, A = Knapsak_unb(p1, v1, 15)
 
-print("\nKnapsak_unb Otimum: " , M[-1])
+print("\nKnapsak_unb Otimum: ", M[-1])
 for item in A:
     print("item ", item)
