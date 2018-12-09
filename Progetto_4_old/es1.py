@@ -1,5 +1,5 @@
-from Progetto_4.TdP_collections.graphs.graph import Graph
-from Progetto_4.TdP_collections.priority_queue.heap_priority_queue import HeapPriorityQueue
+from Progetto_4_old.TdP_collections.graphs.graph import Graph
+from Progetto_4_old.TdP_collections.priority_queue.heap_priority_queue import HeapPriorityQueue
 
 
 class MyGraph(Graph):

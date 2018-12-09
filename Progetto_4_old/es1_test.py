@@ -1,5 +1,5 @@
-from Progetto_4.Utilities import generateGraph, read_graph_from_file
-from Progetto_4.es1 import MyGraph
+from Progetto_4_old.Utilities import generateGraph, read_graph_from_file
+from Progetto_4_old.es1 import MyGraph
 import cProfile
 import pstats
 
